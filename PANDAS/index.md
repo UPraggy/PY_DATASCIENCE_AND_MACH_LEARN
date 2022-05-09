@@ -10,7 +10,7 @@
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
  
- https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704
+
 
 
 # INTRODUÇÃO
@@ -25,12 +25,29 @@ Neste Módulo, tem como objetivo resumir os conceitos de Calculo II.
 
 ```
 # READING AND WRITING IN CSV AND EXCEL FILE
+If you want to read the files or save the dataframes in more than one worksheet, follow this **[TUTORIAL](https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704)**
 #### EXCEL
-Read an Excel file into a pandas DataFrame.
 Supports xls, xlsx, xlsm, xlsb, odf, ods and odt file extensions read from a local filesystem or URL. Supports an option to read a single sheet or a list of sheets.
 ```python
-DataFrame.to_excel(excel_path)
+DataFrame.to_excel(excel_path) -> Save a pandas DataFrame into an Excel file.
 ```
 ```python
-DataFrame.to_csv(path_or_buf=None, sep=',') -> 
+DataFrame.read_excel(io) -> Read an Excel file into a pandas DataFrame.
+```
+```python
+DataFrame.read_csv(path_or_buf=None, sep=',') -> Save a pandas DataFrame into an csv file, if the file separators are different from ',' use the 'sep' parameter 
+EX:
+CSV
+COL1; COL2;COL3
+data1;data2;data3 
+data4;data5;data6
+data7;data8;data9
+
+Dataframe
+    COL1  | COL2  | COL3
+0   data1 | data2 | data3 
+1   data4 | data5 | data6
+2   data7 | data8 | data9
+
+
 ```
