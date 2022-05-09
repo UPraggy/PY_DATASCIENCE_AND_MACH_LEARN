@@ -18,7 +18,7 @@
 This module aims to summarize codes that can help in data science using pandas, some function parameters will be hidden, because this module aims to be simple and synthesized.
 # CREATE DATAFRAME
 The best way to create a dataframe is using dictionaries, where the keys will be the columns and the values the rows.<br>
-**OBS.:** For each value of the "list" within the dictionary a line will be created with that value, that is, as in the example below, the first values ​​of **'number_order', | 'client' | 'value'**, will compose the first line: **1 | 100 | 120**
+**OBS.:** For each value of the "list" within the dictionary a line will be created with that value, that is, as in the example below, the first values ​​of **'number_order', | 'client' | 'value'**, will compose the first line: **1 | x | 120**
 ```python
 d = {'number_order' : [1, 2, 3, 4, 5, 6],
 'client' : ['x', 'y', 'z', 'd', 'e', 'f'],
