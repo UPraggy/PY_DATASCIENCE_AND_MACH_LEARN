@@ -34,8 +34,9 @@ DataFrame.to_excel(excel_path) -> Save a pandas DataFrame into an Excel file.
 ```python
 DataFrame.read_excel(io) -> Read an Excel file into a pandas DataFrame.
 ```
+#### CSV
 ```python
-DataFrame.read_csv(path_or_buf=None, sep=',') -> Save a pandas DataFrame into an csv file, if the file separators are different from ',' use the 'sep' parameter 
+DataFrame.read_csv(path_or_buf=None, sep=',') -> Read an CSV file into a pandas DataFrame, if the file separators are different from ',' use the 'sep' parameter 
 EX:
 CSV
 COL1; COL2;COL3
@@ -49,5 +50,7 @@ Dataframe
 1   data4 | data5 | data6
 2   data7 | data8 | data9
 
-
+```
+```python
+DataFrame.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
 ```
