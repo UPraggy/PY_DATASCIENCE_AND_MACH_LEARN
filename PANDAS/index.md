@@ -21,7 +21,7 @@ Neste Módulo, tem como objetivo resumir os conceitos de Calculo II.
 - **[DATAFRAME.INFO()](#dataframeinfo)**
 - **[DERIVADA](#derivada)**
 
-##### DATAFRAME.INFO()
+## DATAFRAME.INFO()
 ```python
 DataFrame.info() -> This method prints information about a DataFrame including the index dtype and columns, non-null values and memory usage.
 ```
