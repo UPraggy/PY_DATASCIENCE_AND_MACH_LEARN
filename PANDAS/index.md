@@ -1,7 +1,8 @@
 # ACESSO À PORTA SERIAL
 
 # SUMÁRIO
-- **[INTRODUÇÃO](#introdução)**
+- **[INTRODUCTION](#introduction)**
+- **[CREATE DATAFRAME](#create-dataframe)**
 - **[INFORMATION ABOUT DATAFRAME](#information-about-dataframe)**
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
 - **[DERIVADA](#derivada)**
@@ -13,9 +14,26 @@
 
 
 
-# INTRODUÇÃO
-Neste Módulo, tem como objetivo resumir os conceitos de Calculo II.
-**Ele será resumido em topicos simples com base em alguns conceitos e formulas baseados no que o professor passou em sala e em breve oque consta no Conteúdo digital.**
+# INTRODUCTION
+This module aims to summarize codes that can help in data science using pandas, some function parameters will be hidden, because this module aims to be simple and synthesized.
+# CREATE DATAFRAME
+The best way to create a dataframe is using dictionaries, where the keys will be the columns and the values the rows.<br>
+**OBS.:** For each value of the "list" within the dictionary a line will be created with that value, that is, as in the example below, the first values ​​of **'number_order', | 'client' | 'value'**, will compose the first line: **1 | 100 | 120**
+```python
+d = {'number_order' : [1, 2, 3, 4, 5, 6],
+'client' : ['x', 'y', 'z', 'd', 'e', 'f'],
+'value' : ['120', '187.74', '188.7', '300', '563.2', '198.0']
+}
+df = pd.DataFrame(data = d)
+
+   number_order |  client  |  value
+0        1      |     x    |   120
+1        2      |     y    |   187.74
+2        3      |     z    |   188.7
+3        4      |     d    |   300
+4        5      |     e    |   563.2
+5        6      |     f    |   198.0
+```
 
 # INFORMATION ABOUT DATAFRAME
 - **[DATAFRAME.INFO()](#dataframeinfo)**
