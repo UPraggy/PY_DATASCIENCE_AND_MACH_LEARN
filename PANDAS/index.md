@@ -3,7 +3,7 @@
 # SUMÁRIO
 - **[INTRODUCTION](#introduction)**
 - **[CREATE DATAFRAME](#create-dataframe)**
-- **[INFORMATION ABOUT DATAFRAME](#information-about-dataframe)**
+- **[INFORMATION ABOUT DATAFRAME AND EDITS](#information-about-dataframe-and-edits)**
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
@@ -35,10 +35,11 @@ df = pd.DataFrame(data = d)
 5        6      |     f    |   198.0
 ```
 
-# INFORMATION ABOUT DATAFRAME
+# INFORMATION ABOUT DATAFRAME AND EDITS
 - **[DATAFRAME.INFO()](#dataframeinfo)**
 - **[DATAFRAME.SHAPE](#dataframeshape)**
 - **[DATAFRAME.COLUMNS](#dataframecolumns)**
+- **[DATAFRAME.RENAME()](#dataframerename)**
 
 ### DATAFRAME.INFO()
 ```python
@@ -86,6 +87,37 @@ df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
 df.columns
 ['col1','col2']
 ```
+### DATAFRAME.RENAME()
+Rename columns or rows.
+**OBS.:** The inplace command equals true replaces the datraframe values ​​instead of returning a copy of it.
+```python
+DataFrame.rename(columns = None, axis = None, inplace=False)
+
+df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
+    col1  col2
+0     1     2
+1     3     4
+
+df.rename(columns = {'col1': 'COL1', 'col2': 'COL2'}, inplace=True)
+    COL1  COL2
+0     1     2
+1     3     4
+
+If you want to change and know the name of all columns, it is also possible to change through a list of values
+
+df.columns = ['COL3','COL4']
+    COL4  COL3
+0     1     2
+1     3     4
+
+```
+
+
+
+
+
+
+
 
 # READING AND WRITING IN CSV AND EXCEL FILE
 If you want to read the files or save the dataframes in more than one worksheet, follow this **[TUTORIAL](https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704)**
