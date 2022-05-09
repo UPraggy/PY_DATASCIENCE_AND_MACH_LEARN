@@ -38,7 +38,7 @@ df = pd.DataFrame(data = d)
 # INFORMATION ABOUT DATAFRAME
 - **[DATAFRAME.INFO()](#dataframeinfo)**
 - **[DATAFRAME.SHAPE](#dataframeshape)**
-- **[DATAFRAME.INFO()](#dataframeinfo)**
+- **[DATAFRAME.COLUMNS](#dataframecolumns)**
 
 ### DATAFRAME.INFO()
 ```python
@@ -79,6 +79,14 @@ df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
 df.shape
 (2, 2)
 ```
+### DATAFRAME.COLUMNS
+Return a list with columns of dataframe.
+```python
+df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
+df.columns
+['col1','col2']
+```
+
 # READING AND WRITING IN CSV AND EXCEL FILE
 If you want to read the files or save the dataframes in more than one worksheet, follow this **[TUTORIAL](https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704)**
 #### EXCEL
