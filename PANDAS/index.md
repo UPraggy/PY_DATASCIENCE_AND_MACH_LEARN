@@ -19,6 +19,8 @@ Neste Módulo, tem como objetivo resumir os conceitos de Calculo II.
 
 # INFORMATION ABOUT DATAFRAME
 - **[DATAFRAME.INFO()](#dataframeinfo)**
+- **[DATAFRAME.SHAPE](#dataframeshape)**
+- **[DATAFRAME.INFO()](#dataframeinfo)**
 
 ### DATAFRAME.INFO()
 ```python
@@ -51,6 +53,13 @@ Data columns (total 3 columns):
 dtypes: float64(1), int64(1), object(1)
 memory usage: 248.0+ bytes
 
+```
+### DATAFRAME.SHAPE
+Return a tuple representing the dimensionality of the DataFrame.
+```python
+df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
+df.shape
+(2, 2)
 ```
 # READING AND WRITING IN CSV AND EXCEL FILE
 If you want to read the files or save the dataframes in more than one worksheet, follow this **[TUTORIAL](https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704)**
