@@ -15,10 +15,10 @@
 
 
 # INTRODUCTION
-This module aims to summarize codes that can help in data science using pandas, some function parameters will be hidden, because this module aims to be simple and synthesized.
+This module aims to summarize codes that can help in data science using pandas, some function parameters will be, because this module intends to be simple and synthesized, for more information follow the documentation link for each function.
 # CREATE DATAFRAME
 The best way to create a dataframe is using dictionaries, where the keys will be the columns and the values the rows.<br>
-**OBS.:** For each value of the "list" within the dictionary a line will be created with that value, that is, as in the example below, the first values ​​of **'number_order', | 'client' | 'value'**, will compose the first line: **1 | x | 120**
+**OBS.:** For each value of the "list" within the dictionary a line will be created with that value, that is, as in the example below, the first values of **'number_order', | 'client' | 'value'**, will compose the first line: **1 | x | 120**
 ```python
 d = {'number_order' : [1, 2, 3, 4, 5, 6],
 'client' : ['x', 'y', 'z', 'd', 'e', 'f'],
@@ -88,8 +88,8 @@ df.columns
 ['col1','col2']
 ```
 ### DATAFRAME.RENAME()
-Rename columns or rows.
-**OBS.:** The inplace command equals true replaces the datraframe values ​​instead of returning a copy of it.
+Rename columns or rows. **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html)**
+**OBS.:** The inplace command equals true replaces the datraframe values instead of returning a copy of it.
 ```python
 DataFrame.rename(columns = None, axis = None, inplace=False)
 
