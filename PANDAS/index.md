@@ -22,12 +22,27 @@
 This module aims to summarize codes that can help in data science using pandas, some function parameters will be, because this module intends to be simple and synthesized, for more information follow the documentation link for each function.
 # CREATE DATAFRAME
 The best way to create a dataframe is using dictionaries, where the keys will be the columns and the values the rows.<br>
-**OBS.:** For each value of the "list" within the dictionary a line will be created with that value, that is, as in the example below, the first values of **'number_order', | 'client' | 'value'**, will compose the first line: **1 | x | 120**
+**OBS.:** For each value of the "list" within the dictionary a line will be created with that value, that is, as in the example below, the first values of **'number_order', | 'client' | 'value'**, will compose the first line: **1 | x | 120**<br>
+If you don't pass any value to the **index** parameter, the dataframe created will have indexes from 0 to the number of rows -1
+
 ```python
 d = {'number_order' : [1, 2, 3, 4, 5, 6],
 'client' : ['x', 'y', 'z', 'd', 'e', 'f'],
 'value' : ['120', '187.74', '188.7', '300', '563.2', '198.0']
 }
+df = pd.DataFrame(data = d, index = ['a', 'b', 'c', 'd', 'e', 'f'])
+
+df
+   number_order |  client  |  value
+a        1      |     x    |   120
+b        2      |     y    |   187.74
+c        3      |     z    |   188.7
+d        4      |     d    |   300
+e        5      |     e    |   563.2
+f        6      |     f    |   198.0
+
+WITHOUT INDEX PARAMTER
+
 df = pd.DataFrame(data = d)
 
 df
@@ -47,7 +62,7 @@ df
 - **[DATAFRAME.COLUMNS](#dataframecolumns)**
 - **[DATAFRAME.RENAME()](#dataframerename)**
 
-### DATAFRAME.INFO()
+### DATAFRAME.INFO() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html)**
 ```python
 DataFrame.info() -> This method prints information about a DataFrame including the index dtype and columns, non-null values and memory usage.
 
@@ -79,7 +94,7 @@ dtypes: float64(1), int64(1), object(1)
 memory usage: 248.0+ bytes
 
 ```
-### DATAFRAME.HEAD()
+### DATAFRAME.HEAD() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html)**
 Return the DataFrame limited by 5 lines if you don't change the parameter **n**.
 ```python
 DataFrame.head(n)
@@ -95,21 +110,21 @@ df
 3     4    13
 4     5    14
 ```
-### DATAFRAME.SHAPE
+### DATAFRAME.SHAPE - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shape.html)**
 Return a tuple representing the dimensionality of the DataFrame.
 ```python
 df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
 df.shape
 (2, 2)
 ```
-### DATAFRAME.COLUMNS
+### DATAFRAME.COLUMNS - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.columns.html)**
 Return a list with columns of dataframe.
 ```python
 df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
 df.columns
 ['col1','col2']
 ```
-### DATAFRAME.RENAME()
+### DATAFRAME.RENAME() 
 Rename columns or rows. **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html)**<br>
 **OBS.:** The inplace command equals true replaces the datraframe values instead of returning a copy of it.
 ```python
@@ -140,9 +155,9 @@ df
 
 ```
 
-# READING AND WRITING IN CSV AND EXCEL FILE
+# READING AND WRITING IN CSV AND EXCEL FILE 
 If you want to read the files or save the dataframes in more than one worksheet, follow this **[TUTORIAL](https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704)**
-#### EXCEL
+#### EXCEL - **[READ EXCEL DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)** **[TO EXCEL DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html)**
 Supports xls, xlsx, xlsm, xlsb, odf, ods and odt file extensions read from a local filesystem or URL. Supports an option to read a single sheet or a list of sheets.
 ```python
 DataFrame.to_excel(excel_path) -> Save a pandas DataFrame into an Excel file.
@@ -150,7 +165,7 @@ DataFrame.to_excel(excel_path) -> Save a pandas DataFrame into an Excel file.
 ```python
 DataFrame.read_excel(io) -> Read an Excel file into a pandas DataFrame.
 ```
-#### CSV
+#### CSV - **[READ CSV DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html#pandas.read_excel)** **[TO CSV DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)**
 ```python
 DataFrame.read_csv(path_or_buf=None, sep=',') -> Read an CSV file into a pandas DataFrame, if the file separators are different from ',' use the 'sep' parameter 
 EX:
