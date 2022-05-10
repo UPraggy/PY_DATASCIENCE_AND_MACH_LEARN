@@ -6,7 +6,7 @@
 - **[INFORMATION ABOUT DATAFRAME AND EDITS](#information-about-dataframe-and-edits)**
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
 - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
-- **[DERIVADA](#derivada)**
+- **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
@@ -26,6 +26,7 @@ d = {'number_order' : [1, 2, 3, 4, 5, 6],
 }
 df = pd.DataFrame(data = d)
 
+df
    number_order |  client  |  value
 0        1      |     x    |   120
 1        2      |     y    |   187.74
@@ -111,11 +112,15 @@ Rename columns or rows. **[DOCUMENTATION](https://pandas.pydata.org/docs/referen
 DataFrame.rename(columns = None, axis = None, inplace=False)
 
 df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
+
+df
     col1  col2
 0     1     2
 1     3     4
 
 df.rename(columns = {'col1': 'COL1', 'col2': 'COL2'}, inplace=True)
+
+df
     COL1  COL2
 0     1     2
 1     3     4
@@ -123,6 +128,8 @@ df.rename(columns = {'col1': 'COL1', 'col2': 'COL2'}, inplace=True)
 If you want to change and know the name of all columns, it is also possible to change through a list of values
 
 df.columns = ['COL3','COL4']
+
+df
     COL4  COL3
 0     1     2
 1     3     4
@@ -199,6 +206,7 @@ DataFrame['COLUMN'].copy()
 This command return **```<class 'pandas.core.series.Series'>```** of the selected row (**This return dont is a copy**, case alter any value of row, will you alter this value in dataframe too) 
 ```python
 DataFrame.iloc[index]
+
 EX.:
 df
     int_col text_col  float_col
@@ -229,9 +237,47 @@ In case you want to have a copy of the row, use:
 ```python
 DataFrame.iloc[index].copy()
 ```
+# BASIC CHANGES TO COLUMNS VALUES
+A way to **change** the **data** in the column **by a constant**
+```python
+DataFrame['COLUMN'] = constant
+
+EX.:
+df
+    int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
 
 
+df["text_col"] = 'constanst',
 
+df
+   int_col   text_col  float_col
+0        1  constanst       0.00
+1        2  constanst       0.25
+2        3  constanst       0.50
+3        4  constanst       0.75
+4        5  constanst       1.00
+```
+
+A way to **change** the **data** in the column **by a list** (the list must be the same length as the number of values in the column)
+```python
+DataFrame['COLUMN'] = list
+
+df["text_col"] = ['a','b','c','d','e']
+
+df
+   int_col text_col  float_col
+0        1        a       0.00
+1        2        b       0.25
+2        3        c       0.50
+3        4        d       0.75
+4        5        e       1.00
+```
+**OBS.:** The same operation, can do using a **```<class 'pandas.core.series.Series'>```** as long as it's the same length
 
 
 
