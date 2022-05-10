@@ -279,7 +279,7 @@ DataFrame['COLUMN'].copy()
 ## SELECT ROW
 This command return **```<class 'pandas.core.series.Series'>```** of the selected row (**This return dont is a copy**, case alter any value of row, will you alter this value in dataframe too) 
 
-### SELECT ROW BY INDEX 
+### SELECT ROW BY INDEX - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html)**
 ```python
 DataFrame.iloc[index]
 
@@ -352,7 +352,7 @@ df.iloc[2,2]
     
 ```
 
-### SELECT BY LABEL (ALMOST THE SAME AS SELECT BY INDEX)
+### SELECT BY LABEL (ALMOST THE SAME AS SELECT BY INDEX) - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html)**
 **OBS.:** This return dont is a copy, case alter any value of row, will you alter this value in dataframe too.
 ```python
 DataFrame.loc[label]
