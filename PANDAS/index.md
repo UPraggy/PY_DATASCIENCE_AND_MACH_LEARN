@@ -190,6 +190,8 @@ DataFrame.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
 - **[SELECT COLUMN](#select-column)**
 - **[SELECT ROW](#select-row)**
 - **[SELECT CELL](#select-cell)**
+- **[SELECT BY INDEX](#select-row-by-index)** 
+- **[SELECT BY LABEL](#select-by-label-almost-the-same-as-select-by-index)**
 
 ## SELECT COLUMN
 This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any row of column, will you alter this value in dataframe too) 
@@ -222,7 +224,7 @@ DataFrame['COLUMN'].copy()
 ## SELECT ROW
 This command return **```<class 'pandas.core.series.Series'>```** of the selected row (**This return dont is a copy**, case alter any value of row, will you alter this value in dataframe too) 
 
-### SELECT ROW BY INDEX
+### SELECT ROW BY INDEX 
 ```python
 DataFrame.iloc[index]
 
@@ -256,7 +258,25 @@ In case you want to have a copy of the row, use:
 ```python
 DataFrame.iloc[index].copy()
 ```
+**OBS.:** The **iloc** function only accepts implicit indexes, that is, according to the example below, if you want to access the **index** of the row or column by the **label**, there will be an error
 
+```python
+DataFrame.iloc[index]
+
+EX.:
+df
+    int_col text_col  float_col
+a        1    alpha       0.00
+b        2     beta       0.25
+c        3    gamma       0.50
+d        4    delta       0.75
+e        5  epsilon       1.00
+
+df.iloc['a']
+
+ERROR:
+TypeError: Cannot index by location index with a non-integer key
+```
 ## SELECT CELL
 This command returns the **value** of the selected cell (**This return is not a copy**, if you change the value, you will change this value in the dataframe too)
 ```python
@@ -276,6 +296,75 @@ df.iloc[2,2]
     gamma
     
 ```
+
+### SELECT BY LABEL (ALMOST THE SAME AS SELECT BY INDEX)
+```python
+DataFrame.loc[label]
+
+EX.:
+df
+    int_col text_col  float_col
+a        1    alpha       0.00
+b        2     beta       0.25
+c        3    gamma       0.50
+d        4    delta       0.75
+e        5  epsilon       1.00
+```
+#### SELECT ROW
+```python
+df.loc['a']
+
+int_col          1
+text_col     alpha
+float_col      0.00
+```
+#### SELECT COLUMN
+```python
+df.loc[:, 'int_col'] -> The ':' operator makes the function of referencing all lines
+
+df
+   int_col
+a        1
+b        2
+c        3
+d        4
+e        5
+```
+In case you want to have a copy, use:
+```python
+DataFrame.loc[label].copy()
+```
+#### SELECT BY CONDITIONS
+```python
+df.loc[df['int_col'] > 2]
+
+df
+   int_col text_col  float_col
+c        3    gamma       0.50
+d        4    delta       0.75
+e        5  epsilon       1.00
+```
+**OBS.:** The **loc** function only accepts labels, that is, according to the example below, if you want to access the **label** of the row or column by the **index**, there will be an error
+
+```python
+DataFrame.loc[label]
+
+EX.:
+df
+    int_col text_col  float_col
+a        1    alpha       0.00
+b        2     beta       0.25
+c        3    gamma       0.50
+d        4    delta       0.75
+e        5  epsilon       1.00
+
+df.loc[0]
+
+ERROR:
+raise KeyError(key) from err
+KeyError: 0
+```
+
 # BASIC CHANGES TO COLUMNS VALUES
 A way to **change** the **data** in the column **by a constant**
 ```python
