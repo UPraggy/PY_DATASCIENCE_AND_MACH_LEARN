@@ -37,6 +37,7 @@ df = pd.DataFrame(data = d)
 
 # INFORMATION ABOUT DATAFRAME AND EDITS
 - **[DATAFRAME.INFO()](#dataframeinfo)**
+- **[DATAFRAME.HEAD()](#dataframehead)**
 - **[DATAFRAME.SHAPE](#dataframeshape)**
 - **[DATAFRAME.COLUMNS](#dataframecolumns)**
 - **[DATAFRAME.RENAME()](#dataframerename)**
@@ -72,6 +73,22 @@ Data columns (total 3 columns):
 dtypes: float64(1), int64(1), object(1)
 memory usage: 248.0+ bytes
 
+```
+### DATAFRAME.HEAD()
+Return the DataFrame limited by 5 lines if you don't change the parameter **n**.
+```python
+DataFrame.head(n)
+
+df = pd.DataFrame({'col1': [1, 2, 3, 4, 5, 6, 7, 8, 9], 'col2': [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]})
+df.head()
+
+df
+   col1  col2
+0     1    10
+1     2    11
+2     3    12
+3     4    13
+4     5    14
 ```
 ### DATAFRAME.SHAPE
 Return a tuple representing the dimensionality of the DataFrame.
