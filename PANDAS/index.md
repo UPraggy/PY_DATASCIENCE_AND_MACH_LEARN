@@ -189,11 +189,9 @@ DataFrame.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
 # SELECTION (OR SEARCH) DATAFRAME OR SERIES
 - **[SELECT COLUMN](#select-column)**
 - **[SELECT ROW](#select-row)**
+- **[SELECT CELL](#select-cell)**
 
-
-
-
-# SELECT COLUMN
+## SELECT COLUMN
 This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any row of column, will you alter this value in dataframe too) 
 ```python
 DataFrame['COLUMN']
@@ -221,8 +219,10 @@ In case you want to have a copy of the column, use:
 DataFrame['COLUMN'].copy()
 ```
 
-# SELECT ROW
+## SELECT ROW
 This command return **```<class 'pandas.core.series.Series'>```** of the selected row (**This return dont is a copy**, case alter any value of row, will you alter this value in dataframe too) 
+
+### SELECT ROW BY INDEX
 ```python
 DataFrame.iloc[index]
 
@@ -255,6 +255,26 @@ float_col        1.0
 In case you want to have a copy of the row, use:
 ```python
 DataFrame.iloc[index].copy()
+```
+
+## SELECT CELL
+This command returns the **value** of the selected cell (**This return is not a copy**, if you change the value, you will change this value in the dataframe too)
+```python
+DataFrame.iloc[index, column]
+
+EX.:
+df
+    int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
+
+df.iloc[2,2]
+
+    gamma
+    
 ```
 # BASIC CHANGES TO COLUMNS VALUES
 A way to **change** the **data** in the column **by a constant**
