@@ -145,12 +145,13 @@ DataFrame.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
 
 # SELECTION (OR SEARCH) DATAFRAME OR SERIES
 - **[SELECT COLUMN](#select-column)**
+- **[SELECT ROW](#select-row)**
 
 
 
 
 # SELECT COLUMN
-This command return the selected column (This return dont is a copy, case alter any line of column, will you alter this value in dataframe too) 
+This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any line of column, will you alter this value in dataframe too) 
 ```python
 DataFrame['COLUMN']
 EX.:
@@ -177,9 +178,40 @@ In case you want to have a copy of the column, use:
 DataFrame['COLUMN'].copy()
 ```
 
+# SELECT ROW
+This command return **```<class 'pandas.core.series.Series'>```** of the selected row (**This return dont is a copy**, case alter any value of row, will you alter this value in dataframe too) 
+```python
+DataFrame.iloc[index]
+EX.:
+df
+    int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
 
+df.iloc[2]
 
+int_col          3
+text_col     gamma
+float_col      0.5
+```
+If you want get the last register, you may substitute the index for -1
 
+```python
+EX.:
+df.iloc[-1]
+
+int_col            5
+text_col     epsilon
+float_col        1.0
+```
+
+In case you want to have a copy of the row, use:
+```python
+DataFrame.iloc[index].copy()
+```
 
 
 
