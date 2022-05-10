@@ -322,7 +322,21 @@ df
 3        4   delta       0.75        d
 4        5   epsilon     1.00        e
 ```
+The **attribution of values** in column too can do through of a **operation or a function**
 
+```python
+EX.:
+
+df["new_col"] = df["int_col"] * 1000
+
+df
+   int_col   text_col  float_col  NEW_COLUMN
+0        1    alpha       0.00        1000
+1        2    beta        0.25        2000
+2        3    gamma       0.50        3000
+3        4    delta       0.75        4000
+4        5    epsilon     1.00        5000
+```
 
 
 
