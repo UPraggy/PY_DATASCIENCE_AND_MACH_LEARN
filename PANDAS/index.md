@@ -5,7 +5,7 @@
 - **[CREATE DATAFRAME](#create-dataframe)**
 - **[INFORMATION ABOUT DATAFRAME AND EDITS](#information-about-dataframe-and-edits)**
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
-- **[DERIVADA](#derivada)**
+- **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
@@ -112,13 +112,6 @@ df.columns = ['COL3','COL4']
 
 ```
 
-
-
-
-
-
-
-
 # READING AND WRITING IN CSV AND EXCEL FILE
 If you want to read the files or save the dataframes in more than one worksheet, follow this **[TUTORIAL](https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704)**
 #### EXCEL
@@ -149,4 +142,87 @@ Dataframe
 ```python
 DataFrame.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
 ```
+
+# SELECTION (OR SEARCH) DATAFRAME OR SERIES
+- **[SELECT COLUMN](#select-column)**
+
+
+
+
+# SELECT COLUMN
+This command return the selected column (This return dont is a copy, case alter any line of column, will you alter this value in dataframe too) 
+```python
+DataFrame['COLUMN']
+EX.:
+df
+    int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
+
+df['text_col']
+
+    text_col  
+0    alpha
+1    beta
+2    gamma
+3    delta
+4    epsilon
+
+```
+In case you want to have a copy of the column, use:
+```python
+DataFrame['COLUMN'].copy()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
