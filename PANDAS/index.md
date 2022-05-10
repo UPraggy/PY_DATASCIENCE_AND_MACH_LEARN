@@ -7,7 +7,7 @@
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
 - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
 - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
-- **[DERIVADA](#derivada)**
+- **[CREATING COLUMNS](#creating-columns)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
  
@@ -252,7 +252,7 @@ df
 4        5  epsilon       1.00
 
 
-df["text_col"] = 'constanst',
+df["text_col"] = 'constanst'
 
 df
    int_col   text_col  float_col
@@ -263,7 +263,7 @@ df
 4        5  constanst       1.00
 ```
 
-A way to **change** the **data** in the column **by a list** (the list must be the same length as the number of values in the column)
+A way to **change** the **data** in the column **by a list** (the **list** must be the **same length** as the number of values in the **column**)
 ```python
 DataFrame['COLUMN'] = list
 
@@ -279,10 +279,49 @@ df
 ```
 **OBS.:** The same operation, can do using a **```<class 'pandas.core.series.Series'>```** as long as it's the same length
 
+# CREATING COLUMNS
+
+A way to **create** a column in the dataframe, by through of a **constant**
+```python
+DataFrame['NEW COLUMN'] = constant
+
+EX.:
+df
+    int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
 
 
+df["new_col"] = 'constanst'
 
+df
+   int_col   text_col  float_col   new_col
+0        1   alpha       0.00      constant
+1        2   beta        0.25      constant
+2        3   gamma       0.50      constant
+3        4   delta       0.75      constant
+4        5   epsilon     1.00      constant
+```
+A way to **create** a column in the dataframe, by through of a **list** (the **list** must be the **same length** as the number of values in the **column**)
 
+```python
+DataFrame['NEW COLUMN'] = list
+
+EX.:
+
+df["new_col"] = ['a','b','c','d','e']
+
+df
+   int_col   text_col  float_col   new_col
+0        1   alpha       0.00        a
+1        2   beta        0.25        b
+2        3   gamma       0.50        c
+3        4   delta       0.75        d
+4        5   epsilon     1.00        e
+```
 
 
 
