@@ -20,6 +20,16 @@
 
 # INTRODUCTION
 This module aims to summarize codes that can help in data science using pandas, some function parameters will be, because this module intends to be simple and synthesized, for more information follow the documentation link for each function.
+
+
+
+
+
+
+
+
+
+
 # CREATE DATAFRAME
 The best way to create a dataframe is using dictionaries, where the keys will be the columns and the values the rows.<br>
 **OBS.:** For each value of the "list" within the dictionary a line will be created with that value, that is, as in the example below, the first values of **'number_order', | 'client' | 'value'**, will compose the first line: **1 | x | 120**<br>
@@ -54,6 +64,21 @@ df
 4        5      |     e    |   563.2
 5        6      |     f    |   198.0
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # INFORMATION ABOUT DATAFRAME AND EDITS
 - **[DATAFRAME.INFO()](#dataframeinfo)**
@@ -155,6 +180,22 @@ df
 
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # READING AND WRITING IN CSV AND EXCEL FILE 
 If you want to read the files or save the dataframes in more than one worksheet, follow this **[TUTORIAL](https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704)**
 #### EXCEL - **[READ EXCEL DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)** **[TO EXCEL DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html)**
@@ -185,6 +226,20 @@ Dataframe
 ```python
 DataFrame.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # SELECTION (OR SEARCH) DATAFRAME OR SERIES
 - **[SELECT COLUMN](#select-column)**
@@ -298,6 +353,7 @@ df.iloc[2,2]
 ```
 
 ### SELECT BY LABEL (ALMOST THE SAME AS SELECT BY INDEX)
+**OBS.:** This return dont is a copy, case alter any value of row, will you alter this value in dataframe too.
 ```python
 DataFrame.loc[label]
 
@@ -365,6 +421,17 @@ raise KeyError(key) from err
 KeyError: 0
 ```
 
+
+
+
+
+
+
+
+
+
+
+
 # BASIC CHANGES TO COLUMNS VALUES
 A way to **change** the **data** in the column **by a constant**
 ```python
@@ -406,6 +473,17 @@ df
 4        5        e       1.00
 ```
 **OBS.:** The same operation, can do using a **```<class 'pandas.core.series.Series'>```** as long as it's the same length
+
+
+
+
+
+
+
+
+
+
+
 
 # CREATING COLUMNS
 
@@ -465,6 +543,22 @@ df
 3        4    delta       0.75        4000
 4        5    epsilon     1.00        5000
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # DATAFRAME INDEX - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.index.html)**
 To retrieve dataframe indices use:
 ```python
