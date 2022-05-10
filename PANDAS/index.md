@@ -356,10 +356,10 @@ df
 3        4    delta       0.75        4000
 4        5    epsilon     1.00        5000
 ```
-# DATAFRAME INDEX
+# DATAFRAME INDEX - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.index.html)**
 To retrieve dataframe indices use:
 ```python
-DATAFRAME.index.to_list() OR DATAFRAME.index
+DATAFRAME.index.to_list() OR DATAFRAME.index 
 EX.:
 df
    int_col   text_col  float_col  NEW_COLUMN
