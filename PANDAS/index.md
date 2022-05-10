@@ -151,7 +151,7 @@ DataFrame.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
 
 
 # SELECT COLUMN
-This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any line of column, will you alter this value in dataframe too) 
+This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any row of column, will you alter this value in dataframe too) 
 ```python
 DataFrame['COLUMN']
 EX.:
