@@ -357,7 +357,24 @@ df
 4        5    epsilon     1.00        5000
 ```
 # DATAFRAME INDEX
+To retrieve dataframe indices use:
+```python
+DATAFRAME.index.to_list() OR DATAFRAME.index
+EX.:
+df
+   int_col   text_col  float_col  NEW_COLUMN
+0        1    alpha       0.00        1000
+1        2    beta        0.25        2000
+2        3    gamma       0.50        3000
+3        4    delta       0.75        4000
+4        5    epsilon     1.00        5000
 
+df.index.to_list()
+[0, 1, 2, 3, 4]
+
+df.index
+RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created with pandas
+```
 
 
 
