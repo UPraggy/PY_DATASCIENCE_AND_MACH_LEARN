@@ -8,6 +8,10 @@
 - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
 - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
 - **[CREATING COLUMNS](#creating-columns)**
+- **[DATAFRAME INDEX](#dataframe-index)**
+- **[DERIVADA](#derivada)**
+- **[DERIVADA](#derivada)**
+- **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
  
@@ -337,8 +341,8 @@ df
 3        4    delta       0.75        4000
 4        5    epsilon     1.00        5000
 ```
+# DATAFRAME INDEX
 
-d
 
 
 
