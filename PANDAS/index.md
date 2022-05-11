@@ -640,6 +640,7 @@ RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created 
 - **[CONDICIONAL SELECTIONS](#condicionals-selections)**
   - **[SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)](#select-column-with-unique-values-without-repeating-them)**
   - **[QUERY](#query)**
+  - **[FOR PERFORMACE](#for-performace)
 This module will be compose by this Dataframe:
 ```python
 df = pd.DataFrame({"int_col": [1, 2, 3, 4, 5, 9, 10, 23, 25, 52, 12, 35, 92, 23],
@@ -750,9 +751,25 @@ test_query
 ```
 And case you want alter the DataFrame and not the copy use the parameter **```test_query.reset_index(inplace=True)```**
 
+#### FOR PERFORMACE
+In a Datafr
+
+```python
+DataFrame.query()
+
+EXAMPLE OF ESTRUCTURE QUERY
+DataFrame.query('COLUMN == "VALUE_SEARCH"')
 
 
+EX.:
+test_query = df.query('text_col == "beta"')
 
+test_query
+    int_col   text_col  float_col
+1         2     beta       0.25
+10       12     beta       0.50
+13       23     beta       8.00
+```
 
 
 
