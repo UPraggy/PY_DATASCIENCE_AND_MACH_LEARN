@@ -694,10 +694,27 @@ EX.:
 test_query = df.query('text_col == "beta"')
 
 test_query
-    int_col text_col  float_col
+    int_col   text_col  float_col
 1         2     beta       0.25
 10       12     beta       0.50
 13       23     beta       8.00
+```
+
+**OBS.:** The command dont work with columns with invalid caracters how spaces ('text col'):
+```python
+df
+    int_col   text col  float_col
+0         1      alpha       0.00
+1         2       beta       0.25
+2         3      gamma       0.50
+.         .       .          .        
+.         .       .          .       
+.         .       .          .      
+EX.:
+test_query = df.query('text col == "beta"')
+
+ERROR
+SyntaxError: invalid syntax
 ```
 
 Case you want reset the index of queried DataFrame use:
@@ -710,6 +727,8 @@ test_query
 1     10       12     beta       0.50
 2     13       23     beta       8.00
 ```
+
+
 **OBS.:** If you don't want to keep the old indexes use the following command:
 ```python
 test_query = test_query.reset_index(drop=True)
