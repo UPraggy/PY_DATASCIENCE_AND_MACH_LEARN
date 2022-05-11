@@ -7,7 +7,7 @@
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
 - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
 - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
-- **[CREATING COLUMNS](#creating-columns)**
+- **[CREATING AND DELETE COLUMNS](#creating-and-delete-columns)**
 - **[DATAFRAME INDEX](#dataframe-index)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
@@ -198,23 +198,26 @@ df
 
 # READING AND WRITING IN CSV AND EXCEL FILE 
 If you want to read the files or save the dataframes in more than one worksheet, follow this **[TUTORIAL](https://cursos.alura.com.br/forum/topico-salvar-arquivo-excel-com-varias-abas-145704)**
-#### EXCEL - **[READ EXCEL DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)** **[TO EXCEL DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html)**
+#### EXCEL - **[READ EXCEL DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html#pandas.read_excel)** **[TO EXCEL DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html)**
 Supports xls, xlsx, xlsm, xlsb, odf, ods and odt file extensions read from a local filesystem or URL. Supports an option to read a single sheet or a list of sheets.
 ```python
 DataFrame.to_excel(excel_path) -> Save a pandas DataFrame into an Excel file.
 ```
 ```python
-DataFrame.read_excel(io) -> Read an Excel file into a pandas DataFrame.
+pandas.read_excel(io) -> Read an Excel file into a pandas DataFrame.
 ```
-#### CSV - **[READ CSV DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html#pandas.read_excel)** **[TO CSV DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)**
+#### CSV - **[READ CSV DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)** **[TO CSV DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html)**
 ```python
-DataFrame.read_csv(path_or_buf=None, sep=',') -> Read an CSV file into a pandas DataFrame, if the file separators are different from ',' use the 'sep' parameter 
+pandas.read_csv(path_or_buf=None, sep=',') -> Read an CSV file into a pandas DataFrame, if the file separators are different from ',' use the 'sep' parameter 
+
 EX:
 CSV
 COL1;COL2;COL3
 data1;data2;data3 
 data4;data5;data6
 data7;data8;data9
+
+pandas.read_csv(path_or_buf=None, sep=';') 
 
 Dataframe
     COL1  | COL2  | COL3
@@ -224,10 +227,31 @@ Dataframe
 
 ```
 ```python
-DataFrame.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
+Dataframe.to_csv(path_or_buf=None) -> Save a pandas DataFrame into an CSV file.
 ```
+**OBS.:** This command like ```DataFrame.to_excel()``` or ```Dataframe.to_csv()``` contains **index=True** parameters by **default**, which results in an excel file with an extra column numbered according to standard indexes from 0 to number of lines -1:
+```python
+DataFrame.to_excel(excel_path, index=True)
 
+Dataframe
+    COL1  | COL2  | COL3
+0   data1 | data2 | data3 
+1   data4 | data5 | data6
+2   data7 | data8 | data9
 
+```
+If you don't want it in your excel file use **index=False** and the first column will be considered the data index:
+```python
+DataFrame.to_excel(excel_path, index=False)
+
+Dataframe
+
+COL1  | COL2  | COL3
+data1 | data2 | data3 
+data4 | data5 | data6
+data7 | data8 | data9
+
+```
 
 
 
@@ -485,7 +509,7 @@ df
 
 
 
-# CREATING COLUMNS
+# CREATING AND DELETE COLUMNS
 
 A way to **create** a column in the dataframe, by through of a **constant**
 ```python
@@ -544,8 +568,32 @@ df
 4        5    epsilon     1.00        5000
 ```
 
+#### DELETE COLUMN
+
+A way to **delete** a column in the dataframe
+```python
+del DataFrame['COLUMN']
+
+EX.:
+df
+    int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
 
 
+del df["float_col"]
+
+df
+   int_col text_col
+0        1    alpha
+1        2     beta
+2        3    gamma
+3        4    delta
+4        5  epsilon
+```
 
 
 
