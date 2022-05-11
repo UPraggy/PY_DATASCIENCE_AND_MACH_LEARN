@@ -9,7 +9,7 @@
 - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
 - **[CREATING AND DELETE COLUMNS](#creating-and-delete-columns)**
 - **[DATAFRAME INDEX](#dataframe-index)**
-- **[DERIVADA](#derivada)**
+- **[ADVANCED DATA FILTER](#advanced-data-filter)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
@@ -636,10 +636,50 @@ RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created 
 
 
 
+# ADVANCED DATA FILTER
+- **[CONDICIONAL SELECTIONS](#condicionals-selections)**
 
 
+This module will be compose by this Dataframe:
+```python
+df = pd.DataFrame({"int_col": [1, 2, 3, 4, 5, 9, 10, 23, 25, 52, 12, 35, 92, 23],
+                   "text_col": ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'pi',
+                               'regex', 'other', 'imaginary', 'star', 'beta', 'gamma', 'pi', 'beta'],
+                   "float_col": [0.0, 0.25, 0.5, 0.75, 1.0, 3.14,
+                                2, 4.1, 2.7, 8.1, 0.5, 0.75, 1.0, 8.0]})
+df
+    int_col   text_col  float_col
+0         1      alpha       0.00
+1         2       beta       0.25
+2         3      gamma       0.50
+3         4      delta       0.75
+4         5    epsilon       1.00
+5         9         pi       3.14
+6        10      regex       2.00
+7        23      other       4.10
+8        25  imaginary       2.70
+9        52       star       8.10
+10       12       beta       0.50
+11       35      gamma       0.75
+12       92         pi       1.00
+13       23       beta       8.00
+
+```
 
 
+## CONDICIONAL SELECTIONS
+
+#### SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)
+Returns a array of data without repeats:
+
+```python
+DataFrame["Column"].unique()
+
+df['text_col'].unique()
+['alpha' 'beta' 'gamma' 'delta' 'epsilon' 'pi' 'regex' 'other' 'imaginary'
+ 'star']
+
+```
 
 
 
