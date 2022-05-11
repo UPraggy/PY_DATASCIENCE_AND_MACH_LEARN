@@ -665,7 +665,7 @@ RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created 
   - **[SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)](#select-column-with-unique-values-without-repeating-them)**
   - **[QUERY](#query)**
   - **[BY LIST](#by-list)**
-  - **[FOR PERFORMACE](#for-performace)
+  - **[FOR PERFORMACE](#for-performace)**
  
   
 This module will be compose by this Dataframe:
