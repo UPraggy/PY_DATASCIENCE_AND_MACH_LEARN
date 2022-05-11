@@ -715,6 +715,15 @@ test_query = df.query('text col == "beta"')
 
 ERROR
 SyntaxError: invalid syntax
+
+TRY THIS:
+test_query = df[(df["text col"] == "beta")]
+
+test_query
+    int_col   text_col  float_col
+1         2     beta       0.25
+10       12     beta       0.50
+13       23     beta       8.00
 ```
 
 Case you want reset the index of queried DataFrame use:
