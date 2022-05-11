@@ -681,8 +681,24 @@ df['text_col'].unique()
 
 ```
 
+#### QUERY
+Return a copy of the Dataframe with the queried data:
+```python
+DataFrame.query()
+
+EXAMPLE OF ESTRUCTURE QUERY
+DataFrame.query('COLUMN == "VALUE_SEARCH"')
 
 
+
+test_query = df.query('text_col == "beta"')
+EX.:
+test_query
+    int_col text_col  float_col
+1         2     beta       0.25
+10       12     beta       0.50
+13       23     beta       8.00
+```
 
 
 
