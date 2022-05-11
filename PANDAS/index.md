@@ -689,8 +689,6 @@ DataFrame.query()
 EXAMPLE OF ESTRUCTURE QUERY
 DataFrame.query('COLUMN == "VALUE_SEARCH"')
 
-
-
 test_query = df.query('text_col == "beta"')
 EX.:
 test_query
@@ -700,11 +698,27 @@ test_query
 13       23     beta       8.00
 ```
 
+Case you want reset the index of queried DataFrame use:
+```python
+test_query = test_query.reset_index()
 
+test_query
+   index  int_col text_col  float_col
+0      1        2     beta       0.25
+1     10       12     beta       0.50
+2     13       23     beta       8.00
+```
+**OBS.:** If you don't want to keep the old indexes use the following command:
+```python
+test_query = test_query.reset_index(drop=True)
 
-
-
-
+test_query
+   int_col text_col  float_col
+0        2     beta       0.25
+1       12     beta       0.50
+2       23     beta       8.00
+```
+And case you want alter the DataFrame and not the copy use the parameter **```test_query.reset_index(inplace=True)```**
 
 
 
