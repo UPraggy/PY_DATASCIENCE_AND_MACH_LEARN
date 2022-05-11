@@ -732,7 +732,7 @@ Case you want reset the index of queried DataFrame use:
 test_query = test_query.reset_index()
 
 test_query
-   index  int_col text_col  float_col
+   index    int_col  text_col  float_col
 0      1        2     beta       0.25
 1     10       12     beta       0.50
 2     13       23     beta       8.00
@@ -752,26 +752,35 @@ test_query
 And case you want alter the DataFrame and not the copy use the parameter **```test_query.reset_index(inplace=True)```**
 
 #### FOR PERFORMACE
-In a Datafr
+In a Dataframe with a lot of data, **searching with several conditions** at once tends to be very **expensive and slow**, to improve these searches and make them more **efficient it is recommended** to use **separate searches**:
 
 ```python
-DataFrame.query()
+EXPENSIVE:
 
-EXAMPLE OF ESTRUCTURE QUERY
-DataFrame.query('COLUMN == "VALUE_SEARCH"')
-
-
-EX.:
-test_query = df.query('text_col == "beta"')
+test_query = df[(df["int_col"] >= 10) & (df["float_col"] > 2)]
 
 test_query
     int_col   text_col  float_col
-1         2     beta       0.25
-10       12     beta       0.50
-13       23     beta       8.00
+7        23      other        4.1
+8        25  imaginary        2.7
+9        52       star        8.1
+13       23       beta        8.0
+
+CHEAP:
+src1 = df[(df["int_col"] >= 10)]
+src2 = src1[src1["float_col"] > 2]
+
+test_query = src2
+
+test_query
+    int_col   text_col  float_col
+7        23      other        4.1
+8        25  imaginary        2.7
+9        52       star        8.1
+13       23       beta        8.0
+
 ```
-
-
+This type of approach is cheaper because for each 'src' (search) a new DataFrame is generated with fewer lines than the previous one, making the next queries faster because it is a smaller dataframe, which does not happen in the more expensive example where at each condition the same DataFrame is scanned, that is, the query will be made in lines that would not be necessary.
 
 
 
