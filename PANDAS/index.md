@@ -271,6 +271,7 @@ data7 | data8 | data9
 - **[SELECT CELL](#select-cell)**
 - **[SELECT BY INDEX](#select-row-by-index)** 
 - **[SELECT BY LABEL](#select-by-label-almost-the-same-as-select-by-index)**
+- **[SEARCH BY STRING](#search-by-string)**
 
 ## SELECT COLUMN
 This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any row of column, will you alter this value in dataframe too) 
@@ -414,7 +415,7 @@ In case you want to have a copy, use:
 ```python
 DataFrame.loc[label].copy()
 ```
-#### SELECT BY CONDITIONS
+#### SELECT BY CONDITIONS 
 ```python
 df.loc[df['int_col'] > 2]
 
@@ -444,6 +445,29 @@ ERROR:
 raise KeyError(key) from err
 KeyError: 0
 ```
+
+#### SEARCH BY STRING - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.contains.html)
+```python
+df
+   int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
+5        6   barial       2.10
+6        7     batm       3.50
+
+
+df.loc[df['text_col'].str.contains(f'^ba', case = False)]
+
+   int_col text_col  float_col
+5        6   barial        2.1
+6        7     batm        3.5
+```
+
+
+
 
 
 
@@ -642,6 +666,8 @@ RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created 
   - **[QUERY](#query)**
   - **[BY LIST](#by-list)**
   - **[FOR PERFORMACE](#for-performace)
+ 
+  
 This module will be compose by this Dataframe:
 ```python
 df = pd.DataFrame({"int_col": [1, 2, 3, 4, 5, 9, 10, 23, 25, 52, 12, 35, 92, 23],
@@ -671,7 +697,7 @@ df
 
 ## CONDICIONAL SELECTIONS
 
-#### SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)
+#### SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM) - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.unique.html) 
 Returns a array of data without repeats:
 
 ```python
@@ -683,7 +709,7 @@ df['text_col'].unique()
 
 ```
 
-#### QUERY
+#### QUERY  - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html) 
 Return a copy of the Dataframe with the queried data:
 ```python
 DataFrame.query()
@@ -754,7 +780,7 @@ test_query
 And case you want alter the DataFrame and not the copy use the parameter **```test_query.reset_index(inplace=True)```**
 
 
-#### BY LIST
+#### BY LIST - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isin.html) 
 ```python
 DataFrame["COLUMN"].isin(list)
 
