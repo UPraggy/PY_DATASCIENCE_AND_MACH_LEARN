@@ -640,6 +640,7 @@ RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created 
 - **[CONDICIONAL SELECTIONS](#condicionals-selections)**
   - **[SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)](#select-column-with-unique-values-without-repeating-them)**
   - **[QUERY](#query)**
+  - **[BY LIST](#by-list)**
   - **[FOR PERFORMACE](#for-performace)
 This module will be compose by this Dataframe:
 ```python
@@ -690,6 +691,7 @@ DataFrame.query()
 EXAMPLE OF ESTRUCTURE QUERY
 DataFrame.query('COLUMN == "VALUE_SEARCH"')
 
+DataFrame.query('COLUMN in @list_data') -> if you want to compare if the column contains the values of a list use '@'
 
 EX.:
 test_query = df.query('text_col == "beta"')
@@ -750,6 +752,30 @@ test_query
 2       23     beta       8.00
 ```
 And case you want alter the DataFrame and not the copy use the parameter **```test_query.reset_index(inplace=True)```**
+
+
+#### BY LIST
+```python
+DataFrame["COLUMN"].isin(list)
+
+
+EX.:
+list_data = ["beta","imaginary","gamma"]
+select = df["text_col"].isin(list_data)
+
+test_query = df[select]
+
+test_query
+    int_col   text_col  float_col
+1         2       beta       0.25
+2         3      gamma       0.50
+8        25  imaginary       2.70
+10       12       beta       0.50
+11       35      gamma       0.75
+13       23       beta       8.00
+```
+
+
 
 #### FOR PERFORMACE
 In a Dataframe with a lot of data, **searching with several conditions** at once tends to be very **expensive and slow**, to improve these searches and make them more **efficient it is recommended** to use **separate searches**:
