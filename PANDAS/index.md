@@ -689,8 +689,10 @@ DataFrame.query()
 EXAMPLE OF ESTRUCTURE QUERY
 DataFrame.query('COLUMN == "VALUE_SEARCH"')
 
-test_query = df.query('text_col == "beta"')
+
 EX.:
+test_query = df.query('text_col == "beta"')
+
 test_query
     int_col text_col  float_col
 1         2     beta       0.25
