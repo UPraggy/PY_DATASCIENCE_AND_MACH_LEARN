@@ -770,7 +770,7 @@ RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created 
 
 # ADVANCED DATA FILTER
 - **[CONDICIONAL SELECTIONS](#condicionals-selections)**
-  - **[SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)](#select-column-with-unique-values-without-repeating-them)**
+  - **[SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)](#select-column-with-unique-values-without-repeating-them---documentation)**
   - **[QUERY](#query---documentation)**
   - **[BY LIST](#by-list---documentation)**
   - **[FOR PERFORMACE](#for-performace)**
