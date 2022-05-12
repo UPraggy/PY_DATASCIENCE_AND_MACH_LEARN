@@ -3,18 +3,16 @@
 # SUMMMARY
 - **[INTRODUCTION](#introduction)**
 - **[CREATE DATAFRAME](#create-dataframe)**
+- **[DATAFRAME INDEX](#dataframe-index---documentation)**
 - **[INFORMATION ABOUT DATAFRAME AND EDITS](#information-about-dataframe-and-edits)**
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
-- **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
-- **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
-- **[CREATING AND DELETE COLUMNS](#creating-and-delete-columns)**
-- **[DATAFRAME INDEX](#dataframe-index)**
-- **[ADVANCED DATA FILTER](#advanced-data-filter)**
-- **[ADVANCED CHANGE VALUES](#derivada)**
-- **[DERIVADA](#derivada)**
-- **[DERIVADA](#derivada)**
-- **[DERIVADA](#derivada)**
- 
+- **COLUMNS, ROWS AND DATA**
+  - **[CREATING AND DELETE COLUMNS](#creating-and-delete-columns)**
+  - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
+  - **[ADVANCED DATA FILTER](#advanced-data-filter)**
+  - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
+  - **[ADVANCED CHANGE VALUES](#derivada)**
+
 
 
 
