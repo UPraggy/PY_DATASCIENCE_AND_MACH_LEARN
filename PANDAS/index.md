@@ -121,7 +121,7 @@ memory usage: 248.0+ bytes
 
 ```
 
-### DATAFRAME.DESCRIBE()
+### DATAFRAME.DESCRIBE() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html)**
 This function provides a detailed description about the data in dataframe, contain [count, mean, std, min, max and percentiles (25%, 50%, 70%)] these values are separated and calculated for each column.
 ```python
 DataFrame.describe()
@@ -774,8 +774,14 @@ Returns a array of data without repeats:
 DataFrame["Column"].unique()
 
 df['text_col'].unique()
+
 ['alpha' 'beta' 'gamma' 'delta' 'epsilon' 'pi' 'regex' 'other' 'imaginary'
  'star']
+ 
+Case you want order the values:
+sorted(df['text_col'].unique())
+
+['alpha', 'beta', 'delta', 'epsilon', 'gamma', 'imaginary', 'other', 'pi', 'regex', 'star']
 
 ```
 
