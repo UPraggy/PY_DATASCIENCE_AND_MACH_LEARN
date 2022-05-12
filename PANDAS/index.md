@@ -1081,8 +1081,8 @@ The dataframes used for this topic:
 df = pd.DataFrame({"COL1": [x for x in range(0, 10)], "COL2": ['A','B','C','D','E','F','G','H','I', 'J']})
 df2 = pd.DataFrame({"COL": [x for x in range(0, 10)], "COL3": ['L','M','N','O','P','Q','R','S', 'T', 'U']})
 
-df1
-   COL COL2
+df
+   COL1 COL2
 0    0    A
 1    1    B
 2    2    C
@@ -1095,7 +1095,7 @@ df1
 9    9    J
 -------------------------
 df2
-   COL COL2
+   COL COL3
 0    0    L
 1    1    M
 2    2    N
@@ -1110,8 +1110,8 @@ df2
 
 
 ## JOIN - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html)
-This function joins the columns of two or more dataframes if the values are equal between the dataframes the column to be compared is set in the parameter ```on='COLUMN'```, it is worth remembering that the first parameter ```other` `` must receive the second dataframe with the same index as the evaluated column, if the compared value is not equal to any other, a new row will be created.
-
+This function joins the columns of two or more dataframes if the values are equal between the dataframes the column to be compared is set in the parameter **```on='COLUMN'```**, it is worth remembering that the first parameter **```other```** must receive the second dataframe with the same index as the evaluated column, if the compared value is not equal to any other, a new row will be created.<br>
+**OBS.:** The join function is column name sensitive, so joining dataframes with similar column names will not work
 ```python
 DataFrame.join(other, on=None)
 ```
@@ -1131,16 +1131,97 @@ df.join(df2.set_index('COL'), on='COL1')
 9     9    J    U
 
 ```
+## CONCAT
+In this example, let's assume that the column 'COL 3' of the second dataframe is called 'COL2' and 'COL1' is called 'COL' so that both dataframes have the same column names
 ```python
+df1
+   COL COL2
+0    0    A
+1    1    B
+2    2    C
+.    .    .
+.    .    .
+-------------------------
+df2
+   COL COL2
+0    0    L
+1    1    M
+.    .    .
+.    .    .
+```
+This function joins two or more dataframes by grouping one followed/below the other, this function is not sensitive to columns with different names, but if there is any, it will be created in another dataframe in addition to filling with empty values for dataframes that did not contain the column
+**OBS.:** Below this example, there will be another example showing the use of the function with dataframes with different columns
+```python
+list_dfs = [df,df2]
+concats = pd.concat(list_dfs)
+
+concats
+   COL COL2
+0    0    A
+1    1    B
+2    2    C
+3    3    D
+4    4    E
+5    5    F
+6    6    G
+7    7    H
+8    2    I
+9    9    J
+0    0    L
+1    1    M
+2    2    N
+3    3    O
+4    4    P
+5    5    Q
+6    6    R
+7    7    S
+8    8    T
+9    9    U
 
 ```
 
+#### DIFFERENTS COLUMNS
+```python
+   COL COL2
+0    0    A
+1    1    B
+.    .    .
+.    .    .
+-------------------------
+   COL COL3
+0    0    L
+1    1    M
+2    2    N
+.    .    .
+.    .    .
+```
+```python
+list_dfs = [df,df2]
+concats = pd.concat(list_dfs)
 
+   COL COL2 COL3
+0    0    A  NaN
+1    1    B  NaN
+2    2    C  NaN
+3    3    D  NaN
+4    4    E  NaN
+5    5    F  NaN
+6    6    G  NaN
+7    7    H  NaN
+8    2    I  NaN
+9    9    J  NaN
+0    0  NaN    L
+1    1  NaN    M
+2    2  NaN    N
+3    3  NaN    O
+4    4  NaN    P
+5    5  NaN    Q
+6    6  NaN    R
+7    7  NaN    S
+8    8  NaN    T
+9    9  NaN    U
 
-
-
-
-
+```
 
 
 
