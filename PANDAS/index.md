@@ -959,25 +959,101 @@ This type of approach is cheaper because for each 'src' (search) a new DataFrame
 - **[APPLYMAP](#applymap)**
 The dataframe used for this topic:
 ```python
+df
    Destination_1 Destination_2
 0         BRAZIL        BRAZIL
 1         BRAZIL       URUGUAY
-2         BRAZIL     SINGAPORE
-3      ARGENTINA     VENEZUELA
+2      ARGENTINA     SINGAPORE
+3      ARGENTINA     ARGENTINA
 4        MOROCCO      THAILAND
 5      INDONESIA          PERU
 6            USA       ECUADOR
 7         BRAZIL           USA
 8          EGYPT       ALGERIA
-9        LEBANON         EGYPT
+9          EGYPT         EGYPT
 10           USA        CANADA
-
-
 ```
 ## APLLY
 This function changes the values in **DataFrame or Series** according to the **axis** parameter where it defines whether the change operation will be in columns or rows.
 <br>**OBS.:** ```axis=0``` for cols and ```axis=1``` for rows
+```python
+DataFrame.apply(func, axis = 0)
+```
+#### See the following example for same-line operation:
+According to the Dataframe above the developer needs to create a new column **```OUTPUT```** based on the values of columns **```Destination_1```** and **```Destination_2 ``` **, the column **```OUTPUT```** will receive values between True or False, according to the test that returns True when the values of the two columns are equal and False if they are not.
+```python
+def func(line):
+    if line[0] == line[1]:
+        return True
+    else:
+        return False
+
+df['OUTPUT'] = df.apply(func, axis = 1)
 
 
+df
+   Destination_1 Destination_2  OUTPUT
+0         BRAZIL        BRAZIL    True
+1         BRAZIL       URUGUAY   False
+2      ARGENTINA     SINGAPORE   False
+3      ARGENTINA     ARGENTINA    True
+4        MOROCCO      THAILAND   False
+5      INDONESIA          PERU   False
+6            USA       ECUADOR   False
+7         BRAZIL           USA   False
+8          EGYPT       ALGERIA   False
+9          EGYPT         EGYPT    True
+10           USA        CANADA   False
+```
+#### See the following example for same-col operation:
+According to the Dataframe above the developer wants to replace all column values that do not contain 'BRAZIL' by 'NOT'
+```python
+def func(line):
+    temp = line.values.tolist()
+    for x in range(0, len(temp)):
+        if temp[x] != 'BRAZIL':
+            line[x] = 'NOT'
+
+df.apply(func, axis = 0)
 
 
+df
+   Destination_1 Destination_2
+0         BRAZIL        BRAZIL
+1         BRAZIL           NOT
+2            NOT           NOT
+3            NOT           NOT
+4            NOT           NOT
+5            NOT           NOT
+6            NOT           NOT
+7         BRAZIL           NOT
+8            NOT           NOT
+9            NOT           NOT
+10           NOT           NOT
+```
+
+**OBS.:** The same thing can be done on a specific column:
+```python
+def func(line):
+    if line != 'BRAZIL':
+        return 'NOT'
+    else:
+        return line
+
+df['Destination_1'] = df['Destination_1'].apply(func)
+
+
+df
+   Destination_1 Destination_2
+0         BRAZIL        BRAZIL
+1         BRAZIL       URUGUAY
+2            NOT     SINGAPORE
+3            NOT     ARGENTINA
+4            NOT      THAILAND
+5            NOT          PERU
+6            NOT       ECUADOR
+7         BRAZIL           USA
+8            NOT       ALGERIA
+9            NOT         EGYPT
+10           NOT        CANADA
+```
