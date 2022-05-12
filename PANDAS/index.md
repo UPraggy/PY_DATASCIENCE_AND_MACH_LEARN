@@ -82,6 +82,7 @@ df
 
 # INFORMATION ABOUT DATAFRAME AND EDITS
 - **[DATAFRAME.INFO()](#dataframeinfo)**
+- **[DATAFRAME.DESCRIBE()](#dataframedescribe)**
 - **[DATAFRAME.HEAD()](#dataframehead)**
 - **[DATAFRAME.SHAPE](#dataframeshape)**
 - **[DATAFRAME.COLUMNS](#dataframecolumns)**
@@ -119,6 +120,46 @@ dtypes: float64(1), int64(1), object(1)
 memory usage: 248.0+ bytes
 
 ```
+
+### DATAFRAME.DESCRIBE()
+This function provides a detailed description about the data in dataframe, contain [count, mean, std, min, max and percentiles (25%, 50%, 70%)] these values are separated and calculated for each column.
+```python
+DataFrame.describe()
+
+EXAMPLE OF ESTRUCTURE DESCRIBE
+DataFrame.describe()['COLUMN']
+DataFrame.describe()[['COLUMN1','COLUMN2','COLUMN'3]]
+DataFrame['COLUMN'].describe()
+
+EX.:
+   col1  col2
+0     1    10
+1     2    11
+2     3    12
+3     4    13
+4     5    14
+5     6    15
+6     7    16
+7     8    17
+8     9    18
+
+
+df.describe()
+
+df
+           col1       col2
+count  9.000000   9.000000
+mean   5.000000  14.000000
+std    2.738613   2.738613
+min    1.000000  10.000000
+25%    3.000000  12.000000
+50%    5.000000  14.000000
+75%    7.000000  16.000000
+max    9.000000  18.000000
+```
+
+
+
 ### DATAFRAME.HEAD() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html)**
 Return the DataFrame limited by 5 lines if you don't change the parameter **n**.
 ```python
