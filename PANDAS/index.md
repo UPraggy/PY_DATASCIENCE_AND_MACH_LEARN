@@ -975,7 +975,7 @@ df
 9          EGYPT         EGYPT
 10           USA        CANADA
 ```
-## APLLY - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html)
+## APPLY - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html)
 This function changes the values in **DataFrame or Series** according to the **axis** parameter where it defines whether the change operation will be in columns or rows.
 <br>**OBS.:** ```axis=0``` for cols and ```axis=1``` for rows
 ```python
