@@ -83,6 +83,7 @@ df
 # INFORMATION ABOUT DATAFRAME AND EDITS
 - **[DATAFRAME.INFO()](#dataframeinfo)**
 - **[DATAFRAME.DESCRIBE()](#dataframedescribe)**
+- **[DATAFRAME['COLUMN'].VALUE_COUNTS()](#dataframecolumnvaluecounts)**
 - **[DATAFRAME.HEAD()](#dataframehead)**
 - **[DATAFRAME.SHAPE](#dataframeshape)**
 - **[DATAFRAME.COLUMNS](#dataframecolumns)**
@@ -187,8 +188,47 @@ describe_result
 min   1.0
 max   9.0
 ```
+### DATAFRAME.VALUE_COUNTS() [ALL COLUMN DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.value_counts.html) / DATAFRAME['COLUMN'].VALUE_COUNTS() [SPECIFIC COLUMN DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html)
+Counts how many occurrences or records of a given value in a given column:
+```python
+DataFrame.value_counts()
+DataFrame['COLUMN'].value_counts()
 
 
+
+df
+    int_col   text_col  float_col
+0         1      alpha       0.00
+1         2       beta       0.25
+2         3      gamma       0.50
+3         4      delta       0.75
+4         5    epsilon       1.00
+5         9         pi       3.14
+6        10      regex       2.00
+7        23      other       4.10
+8        25  imaginary       2.70
+9        52       star       8.10
+10       12       beta       0.50
+11       35      gamma       0.75
+12       92         pi       1.00
+13       23       beta       8.00
+
+
+df['text_col'].value_counts()
+
+df
+beta         3
+gamma        2
+pi           2
+alpha        1
+delta        1
+epsilon      1
+regex        1
+other        1
+imaginary    1
+star         1
+Name: text_col, dtype: int64
+```
 ### DATAFRAME.HEAD() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html)**
 Return the DataFrame limited by 5 lines if you don't change the parameter **n**.
 ```python
