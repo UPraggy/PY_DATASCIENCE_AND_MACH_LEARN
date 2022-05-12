@@ -11,7 +11,7 @@
   - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
   - **[ADVANCED DATA FILTER](#advanced-data-filter)**
   - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
-  - **[ADVANCED CHANGE VALUES](#derivada)**
+  - **[ADVANCED CHANGE VALUES](#advanced-change-values)**
 
 
 
@@ -949,6 +949,34 @@ test_query
 This type of approach is cheaper because for each 'src' (search) a new DataFrame is generated with fewer lines than the previous one, making the next queries faster because it is a smaller dataframe, which does not happen in the more expensive example where at each condition the same DataFrame is scanned, that is, the query will be made in lines that would not be necessary.
 
 
+
+
+
+
+# ADVANCED CHANGE VALUES
+- **[APPLY](#apply)**
+- **[MAP](#map)**
+- **[APPLYMAP](#applymap)**
+The dataframe used for this topic:
+```python
+   Destination_1 Destination_2
+0         BRAZIL        BRAZIL
+1         BRAZIL       URUGUAY
+2         BRAZIL     SINGAPORE
+3      ARGENTINA     VENEZUELA
+4        MOROCCO      THAILAND
+5      INDONESIA          PERU
+6            USA       ECUADOR
+7         BRAZIL           USA
+8          EGYPT       ALGERIA
+9        LEBANON         EGYPT
+10           USA        CANADA
+
+
+```
+## APLLY
+This function changes the values in **DataFrame or Series** according to the **axis** parameter where it defines whether the change operation will be in columns or rows.
+<br>**OBS.:** ```axis=0``` for cols and ```axis=1``` for rows
 
 
 
