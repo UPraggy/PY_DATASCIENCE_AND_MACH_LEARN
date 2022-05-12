@@ -958,6 +958,7 @@ This type of approach is cheaper because for each 'src' (search) a new DataFrame
 - **HONORABLE MENTION**
   - **MAP - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html)**
   - **APPLYMAP - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.applymap.html)**
+  
 The dataframe used for this topic:
 ```python
 df
