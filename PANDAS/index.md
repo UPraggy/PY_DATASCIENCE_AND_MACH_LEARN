@@ -257,8 +257,8 @@ df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
 df.columns
 ['col1','col2']
 ```
-### DATAFRAME.RENAME() 
-Rename columns or rows. **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html)**<br>
+### DATAFRAME.RENAME() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html)**
+Rename columns or rows. <br>
 **OBS.:** The inplace command equals true replaces the datraframe values instead of returning a copy of it.
 ```python
 DataFrame.rename(columns = None, axis = None, inplace=False)
