@@ -954,9 +954,10 @@ This type of approach is cheaper because for each 'src' (search) a new DataFrame
 
 
 # ADVANCED CHANGE VALUES
-- **[APPLY](#apply)**
-- **[MAP](#map)**
-- **[APPLYMAP](#applymap)**
+- **[APPLY](#apply---documentation)**
+- **HONORABLE MENTION**
+  - **MAP - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.map.html)**
+  - **APPLYMAP - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.applymap.html)**
 The dataframe used for this topic:
 ```python
 df
@@ -973,7 +974,7 @@ df
 9          EGYPT         EGYPT
 10           USA        CANADA
 ```
-## APLLY
+## APLLY - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html)
 This function changes the values in **DataFrame or Series** according to the **axis** parameter where it defines whether the change operation will be in columns or rows.
 <br>**OBS.:** ```axis=0``` for cols and ```axis=1``` for rows
 ```python
