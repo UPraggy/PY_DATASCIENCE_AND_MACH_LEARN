@@ -10,7 +10,7 @@
 - **[CREATING AND DELETE COLUMNS](#creating-and-delete-columns)**
 - **[DATAFRAME INDEX](#dataframe-index)**
 - **[ADVANCED DATA FILTER](#advanced-data-filter)**
-- **[DERIVADA](#derivada)**
+- **[ADVANCED CHANGE VALUES](#derivada)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
 - **[DERIVADA](#derivada)**
@@ -83,7 +83,7 @@ df
 # INFORMATION ABOUT DATAFRAME AND EDITS
 - **[DATAFRAME.INFO()](#dataframeinfo)**
 - **[DATAFRAME.DESCRIBE()](#dataframedescribe)**
-- **[DATAFRAME['COLUMN'].VALUE_COUNTS()](#dataframecolumnvaluecounts)**
+- **[DATAFRAME.VALUE_COUNTS()](#dataframevalue_counts---all-column-documentation--dataframecolumnvalue_counts---specific-column-documentation)**
 - **[DATAFRAME.HEAD()](#dataframehead)**
 - **[DATAFRAME.SHAPE](#dataframeshape)**
 - **[DATAFRAME.COLUMNS](#dataframecolumns)**
@@ -188,7 +188,7 @@ describe_result
 min   1.0
 max   9.0
 ```
-### DATAFRAME.VALUE_COUNTS() [ALL COLUMN DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.value_counts.html) / DATAFRAME['COLUMN'].VALUE_COUNTS() [SPECIFIC COLUMN DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html)
+### DATAFRAME.VALUE_COUNTS() - [ALL COLUMN DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.value_counts.html) / DATAFRAME['COLUMN'].VALUE_COUNTS() - [SPECIFIC COLUMN DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.value_counts.html)
 Counts how many occurrences or records of a given value in a given column:
 ```python
 DataFrame.value_counts()
