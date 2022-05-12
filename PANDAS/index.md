@@ -157,7 +157,36 @@ min    1.000000  10.000000
 75%    7.000000  16.000000
 max    9.000000  18.000000
 ```
+**OBS.:** Case you want get specific values, you can use:
+```python
+describe_result = DataFrame.describe()
+describe_result.loc[['metod']]
 
+EXAMPLE OF ESTRUCTURE DESCRIBE
+describe_result.loc[['metod','metod']]
+describe_result.loc[['metod','metod'], ['COLUMN']]
+describe_result.loc[['metod','metod'], ['COLUMN', 'COLUMN1']]
+
+EX.:
+   col1  col2
+0     1    10
+1     2    11
+2     3    12
+3     4    13
+4     5    14
+5     6    15
+6     7    16
+7     8    17
+8     9    18
+
+describe_result = df.describe()
+print(describe_result.loc[['min', 'max'],['col1']])
+
+describe_result
+     col1
+min   1.0
+max   9.0
+```
 
 
 ### DATAFRAME.HEAD() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.head.html)**
