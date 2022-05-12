@@ -12,6 +12,7 @@
   - **[ADVANCED DATA FILTER](#advanced-data-filter)**
   - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
   - **[ADVANCED CHANGE VALUES](#advanced-change-values)**
+- **[GROUP BY](#group-by)**
 
 
 
@@ -1059,3 +1060,75 @@ df
 9            NOT         EGYPT
 10           NOT        CANADA
 ```
+
+
+
+
+
+
+
+
+
+
+# GROUP BY
+
+The dataframe used for this topic:
+```python
+df
+    int_col text_col  float_col
+0         1    delta       0.00
+1         2     beta       0.25
+2         2    gamma       0.50
+3         3    delta       0.75
+4         2    gamma       1.00
+5         1    delta       3.14
+6         1    gamma       2.00
+7         2     beta       4.10
+8         1    gamma       2.70
+9         3     beta       8.10
+10        2     beta       0.50
+11        3    gamma       0.75
+12        3    delta       1.00
+13        2     beta       8.00
+```
+DataFrame.groupby(['COLUMN']) - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html#pandas.DataFrame.groupby)**<br>
+For group values according with column use: 
+<br>**This function return a <pandas.core.groupby.generic.DataFrameGroupBy object>**
+```
+group_v = DataFrame.groupby(['text_col'])
+```
+For see the groups of Object: <br>
+DataFrame.groupby(['COLUMN']).groups - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.GroupBy.groups.html#pandas.core.groupby.GroupBy.groups)**
+<br>**This function returns a kind of dictionary where each value of the chosen column will have an array with the indices where the occurrence of this value was found, that is, in summary:<br>
+returns a dictionary with the locations of the unique values of the selected column or columns**
+```
+WITH ONE COLUMN
+group_v = df.groupby(['text_col'])
+group_v.groups
+
+{'beta': [1, 7, 9, 10, 13], 'delta': [0, 3, 5, 12], 'gamma': [2, 4, 6, 8, 11]}
+    - OTHER OPERATION:
+      group_v.groups['gamma']
+      Int64Index([2, 4, 6, 8, 11], dtype='int64')
+      
+      
+      
+WITH TWO OR MORE COLUMNS
+group_v = df.groupby(['text_col','float_col'])
+group_v.groups
+
+{('beta', 0.25): [1], ('beta', 0.5): [10], ('beta', 4.1): [7], ('beta', 8.0): [13], ('beta', 8.1): [9], ('delta', 0.0): [0], ('delta', 0.75): [3], ('delta', 1.0): [12], ('delta', 3.14): [5], ('gamma', 0.5): [2], ('gamma', 0.75): [11], ('gamma', 1.0): [4], ('gamma', 2.0): [6], ('gamma', 2.7): [8]}
+
+
+OTHER OPERATION:
+
+```
+
+
+
+
+
+
+
+
+
