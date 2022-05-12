@@ -823,7 +823,7 @@ sorted(df['text_col'].unique())
 
 ```
 
-#### QUERY  - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html) 
+#### QUERY - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.query.html) 
 Return a copy of the Dataframe with the queried data:
 ```python
 DataFrame.query()
