@@ -79,13 +79,13 @@ df
 
 
 # INFORMATION ABOUT DATAFRAME AND EDITS
-- **[DATAFRAME.INFO()](#dataframeinfo)**
-- **[DATAFRAME.DESCRIBE()](#dataframedescribe)**
+- **[DATAFRAME.INFO()](#dataframeinfo---documentation)**
+- **[DATAFRAME.DESCRIBE()](#dataframedescribe---documentation)**
 - **[DATAFRAME.VALUE_COUNTS()](#dataframevalue_counts---all-column-documentation--dataframecolumnvalue_counts---specific-column-documentation)**
-- **[DATAFRAME.HEAD()](#dataframehead)**
-- **[DATAFRAME.SHAPE](#dataframeshape)**
-- **[DATAFRAME.COLUMNS](#dataframecolumns)**
-- **[DATAFRAME.RENAME()](#dataframerename)**
+- **[DATAFRAME.HEAD()](#dataframehead---documentation)**
+- **[DATAFRAME.SHAPE](#dataframeshape---documentation)**
+- **[DATAFRAME.COLUMNS](#dataframecolumns---documentation)**
+- **[DATAFRAME.RENAME()](#dataframerename---documentation)**
 
 ### DATAFRAME.INFO() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html)**
 ```python
@@ -378,8 +378,8 @@ data7 | data8 | data9
 - **[SELECT ROW](#select-row)**
 - **[SELECT CELL](#select-cell)**
 - **[SELECT BY INDEX](#select-row-by-index)** 
-- **[SELECT BY LABEL](#select-by-label-almost-the-same-as-select-by-index)**
-- **[SEARCH BY STRING](#search-by-string)**
+- **[SELECT BY LABEL](#select-by-label-almost-the-same-as-select-by-index---documentation)**
+- **[SEARCH BY STRING](#search-by-string---documentation)**
 
 ## SELECT COLUMN
 This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any row of column, will you alter this value in dataframe too) 
@@ -771,8 +771,8 @@ RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created 
 # ADVANCED DATA FILTER
 - **[CONDICIONAL SELECTIONS](#condicionals-selections)**
   - **[SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)](#select-column-with-unique-values-without-repeating-them)**
-  - **[QUERY](#query)**
-  - **[BY LIST](#by-list)**
+  - **[QUERY](#query---documentation)**
+  - **[BY LIST](#by-list---documentation)**
   - **[FOR PERFORMACE](#for-performace)**
  
   
