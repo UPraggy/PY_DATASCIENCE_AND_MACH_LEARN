@@ -12,6 +12,7 @@
   - **[ADVANCED DATA FILTER](#advanced-data-filter)**
   - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
   - **[ADVANCED CHANGE VALUES](#advanced-change-values)**
+  - **[JOINING OR CONCATENING DATAFRAMES](#joining-or-concatening-dataframes)**
 - **[GROUP BY](#group-by)**
 
 
@@ -1060,6 +1061,84 @@ df
 9            NOT         EGYPT
 10           NOT        CANADA
 ```
+
+
+
+
+
+
+
+
+
+
+
+# JOINING OR CONCATENING DATAFRAMES
+- **[JOIN](#join---documentation)**
+- **[CONCAT](#concat---documentation)**
+
+The dataframes used for this topic:
+```python
+df = pd.DataFrame({"COL1": [x for x in range(0, 10)], "COL2": ['A','B','C','D','E','F','G','H','I', 'J']})
+df2 = pd.DataFrame({"COL": [x for x in range(0, 10)], "COL3": ['L','M','N','O','P','Q','R','S', 'T', 'U']})
+
+df1
+   COL COL2
+0    0    A
+1    1    B
+2    2    C
+3    3    D
+4    4    E
+5    5    F
+6    6    G
+7    7    H
+8    8    I
+9    9    J
+-------------------------
+df2
+   COL COL2
+0    0    L
+1    1    M
+2    2    N
+3    3    O
+4    4    P
+5    5    Q
+6    6    R
+7    7    S
+8    8    T
+9    9    U
+```
+
+
+## JOIN - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html)
+This function joins the columns of two or more dataframes if the values are equal between the dataframes the column to be compared is set in the parameter ```on='COLUMN'```, it is worth remembering that the first parameter ```other` `` must receive the second dataframe with the same index as the evaluated column, if the compared value is not equal to any other, a new row will be created.
+
+```python
+DataFrame.join(other, on=None)
+```
+```python
+df.join(df2.set_index('COL'), on='COL1')
+
+   COL1 COL2 COL3
+0     0    A    L
+1     1    B    M
+2     2    C    N
+3     3    D    O
+4     4    E    P
+5     5    F    Q
+6     6    G    R
+7     7    H    S
+8     8    I    T
+9     9    J    U
+
+```
+```python
+
+```
+
+
+
+
+
 
 
 
