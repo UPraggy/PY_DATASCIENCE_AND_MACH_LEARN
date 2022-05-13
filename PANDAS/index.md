@@ -8,6 +8,7 @@
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
 - **COLUMNS, ROWS AND DATA**
   - **[CREATING AND DELETE COLUMNS](#creating-and-delete-columns)**
+  - **[DELETE ROWS](#delete-rows)**
   - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
   - **[ADVANCED DATA FILTER](#advanced-data-filter)**
   - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
@@ -730,13 +731,37 @@ df
 4        5  epsilon
 ```
 
+# DELETE ROWS
+For delete rows use:
+```python
+DataFrame.drop(labels)
+```
+EX.: It is necessary to exclude the register of 2019 in a Dataframe
 
+```python
+df
+  NOTHING  RANDOM  YEAR
+0       A      14  2000
+1       B      23  2001
+2       C      35  2005
+3       D      14  2017
+4       E      27  2018
+5       F      33  2019
+6       G      39  2019
+7       H      10  2019
 
+t = df.query("YEAR == 2019")
+df = df.drop(t.index)
 
+df
+  NOTHING  RANDOM  YEAR
+0       A      14  2000
+1       B      23  2001
+2       C      35  2005
+3       D      14  2017
+4       E      27  2018
 
-
-
-
+```
 
 
 
