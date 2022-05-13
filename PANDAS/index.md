@@ -8,7 +8,7 @@
 - **[READING AND WRITING IN CSV AND EXCEL FILE](#reading-and-writing-in-csv-and-excel-file)**
 - **COLUMNS, ROWS AND DATA**
   - **[CREATING AND DELETE COLUMNS](#creating-and-delete-columns)**
-  - **[DELETE ROWS](#delete-rows)**
+  - **[DELETE ROWS](#delete-rows---documentation)**
   - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
   - **[ADVANCED DATA FILTER](#advanced-data-filter)**
   - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
@@ -731,7 +731,7 @@ df
 4        5  epsilon
 ```
 
-# DELETE ROWS
+# DELETE ROWS - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html)
 For delete rows use:
 ```python
 DataFrame.drop(labels)
