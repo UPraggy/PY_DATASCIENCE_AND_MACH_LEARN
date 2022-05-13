@@ -14,6 +14,7 @@
   - **[ADVANCED CHANGE VALUES](#advanced-change-values)**
   - **[JOINING OR CONCATENING DATAFRAMES](#joining-or-concatening-dataframes)**
 - **[GROUP BY](#group-by)**
+- **[ORDERING](#ordering---documentation)**
 
 
 
@@ -1280,11 +1281,68 @@ group_v.groups
 {('beta', 0.25): [1], ('beta', 0.5): [10], ('beta', 4.1): [7], ('beta', 8.0): [13], ('beta', 8.1): [9], ('delta', 0.0): [0], ('delta', 0.75): [3], ('delta', 1.0): [12], ('delta', 3.14): [5], ('gamma', 0.5): [2], ('gamma', 0.75): [11], ('gamma', 1.0): [4], ('gamma', 2.0): [6], ('gamma', 2.7): [8]}
 
 
-OTHER OPERATION:
+
 
 ```
 
+# ORDERING - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html)
+This function ordering values of a column in a dataframe:
 
+The dataframe used for this topic:
+```python
+df = pd.DataFrame({"Name": ['Efrain Fischer','Hollis Fischer','Jay Vasquez',
+                            'Willie Gibson','Carmine Gonzalez','Antwan Garner',
+                            'Brian Jimenez','Brian Jimenez','Richard Martinez'
+                            ,'Brenton Dixon',
+                            'Dylan Romero','Wilfredo Coffey','Isaac Nielsen']
+                  ,"Age": [14, 23, 35, 14, 27, 33, 39, 10, 11, 14, 37, 37, 16],
+                  "grade": [1, 4, 2, 0, 2, 5, 8, 6, 8,
+                              0, 6, 6, 5]
+                   })
+                   
+df
+                Name  Age  grade
+0     Efrain Fischer   14      1
+1     Hollis Fischer   23      4
+2        Jay Vasquez   35      2
+3      Willie Gibson   14      0
+4   Carmine Gonzalez   27      2
+5      Antwan Garner   33      5
+6      Brian Jimenez   39      8
+7      Brian Jimenez   10      6
+8   Richard Martinez   11      8
+9      Brenton Dixon   14      0
+10      Dylan Romero   37      6
+11   Wilfredo Coffey   37      6
+12     Isaac Nielsen   16      5
+```
+For ordering the contents use:
+```python
+DataFrame.sort_values(by='COLUMN', ascending=True)
+
+OTHER FORMS:
+DataFrame.sort_values(by=['COLUMN','COLUMN2','COLUMN3'], ascending=[True, False, True])
+
+
+EX.:
+print(df.sort_values(by=['Name', 'grade'], ascending = [True, True]))
+
+df
+                Name  Age  grade
+5      Antwan Garner   33      5
+9      Brenton Dixon   14      0
+7      Brian Jimenez   10      6
+6      Brian Jimenez   39      8
+4   Carmine Gonzalez   27      2
+10      Dylan Romero   37      6
+0     Efrain Fischer   14      1
+1     Hollis Fischer   23      4
+12     Isaac Nielsen   16      5
+2        Jay Vasquez   35      2
+8   Richard Martinez   11      8
+11   Wilfredo Coffey   37      6
+3      Willie Gibson   14      0
+```
 
 
 
