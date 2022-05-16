@@ -43,12 +43,13 @@ array = np.array([1, 2, 3], ndmin=4)
 array
 [[[[1 2 3]]]]
 ```
-**OBS.:** To create a predefined array, you cannot insert different amount of values in each 'position' in the array.
+**OBS.:** To create a predefined array, you cannot insert different amount of values at each 'position' in the array, unless you define the type as ```object```.<br>,
+**This operation is not recommended.**
 ```python
 EX.:
-array = np.array([[1, 2, 3],[4, 5, 6, 7]])
+array = np.array([[1, 2, 3],[4, 5, 6, 7]], dtype='object')
 
-
+[list([1, 2, 3]) list([4, 5, 6, 7])]
 ```
 
 ## GET INFORMATIONS
