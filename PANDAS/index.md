@@ -21,7 +21,7 @@
 
 
 # INTRODUCTION
-This module aims to summarize codes that can help in data science using pandas, some function parameters will be, because this module intends to be simple and synthesized, for more information follow the documentation link for each function.
+This module aims to summarize codes that can help in data science using pandas, some function parameters will be hidden, because this module intends to be simple and synthesized, for more information follow the documentation link for each function.
 
 
 
