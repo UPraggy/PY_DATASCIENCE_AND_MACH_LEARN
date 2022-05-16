@@ -14,13 +14,15 @@ This module aims to summarize codes that can help in data science using numpy, s
 
 
 # ARRAY BASICS
-- **[CREATE ARRAY](#create-array)**
-- **[CREATE ARRAY](#array)**
-
+- **[CREATE ARRAY](#create-array---documentation)**
+- **[GET INFORMATIONS](#get-informations)**
+  - **[DIMENSIONS](#dimensions---documentation)**
+  - **[SHAPE (ROWS AND COLS)](#shaperows-and-cols---documentation)**
+  - **[GET TYPE](#get-type---documentation)**
 
 
 https://numpy.org/doc/stable/reference/generated/numpy.array.html
-### CREATE ARRAY - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.array.html)**
+## CREATE ARRAY - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.array.html)**
 To create an array, you can fill or declare dimensions, see the example below.<br>
 **OBS.:** The dtype parameter is used to convert the declared array according to the type entered in the parameter, it is usually used for economical memory space.
 ```python
@@ -33,7 +35,7 @@ array
 [[1 2 3]
  [4 5 6]]
 ```
-For create a array more easily with more dimensions, use:
+For create an array more easily with more dimensions, use:
 ```python
 EX.:
 array = np.array([1, 2, 3], ndmin=4)
@@ -42,10 +44,38 @@ array
 [[[[1 2 3]]]]
 ```
 
+## GET INFORMATIONS
 
+### DIMENSIONS - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.ndim.html)**
+For get dimensions of an array, use:
+```python
+array
+[[1 2 3]
+ [4 5 6]]
 
+array.ndim
+2
+```
+### SHAPE(ROWS AND COLS) - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html)**
+For get number of rows and cols of an array, use:
+```python
+array
+[[1 2 3]
+ [4 5 6]]
 
+array.shape
+(2, 3)
+```
+### GET TYPE - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html)**
+For get datatype of an array, use:
+```python
+array
+[[1 2 3]
+ [4 5 6]]
 
+array.dtype
+int32
+```
 
 ### DATAFRAME - **[DOCUMENTATION]()**
 ```python
