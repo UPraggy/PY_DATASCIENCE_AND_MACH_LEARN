@@ -3,6 +3,7 @@
 # SUMMMARY
 - **[INTRODUCTION](#introduction)**
 - **[ARRAY BASICS](#array-basics)**
+- **[ACCESSING AND CHANGING ARRAYS](#accessing-and-changing-arrays)**
 
 
 
@@ -83,6 +84,49 @@ array
 
 array.dtype
 int32
+```
+
+
+# ACCESSING AND CHANGING ARRAYS
+- **[GET A SPECIFIC ELEMENT](#get-a-specific-element)**
+- **[GET COL](#get-col)**
+- **[GET ROW](#get-row)**
+
+## GET A SPECIFIC ELEMENT
+```python
+array[pos][pos][pos]....
+
+EX.:
+array
+[[[ 1  2  3]
+  [ 4  5  6]]
+  
+ [[ 8  9 10]
+  [11 12 13]]]
+ 
+array[0, 1, 0]
+4
+```
+## GET COL
+```python
+EX.:
+array
+ [[ 8  9 10]
+  [11 12 13]]]
+ 
+array[:, 0]
+[8 11]
+
+```
+## GET ROW
+```python
+EX.:
+array
+ [[ 8  9 10]
+  [11 12 13]]]
+ 
+array[0, :]
+[ 8  9 10]
 ```
 
 ### DATAFRAME - **[DOCUMENTATION]()**
