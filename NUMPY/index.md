@@ -4,6 +4,7 @@
 - **[INTRODUCTION](#introduction)**
 - **[ARRAY BASICS](#array-basics)**
 - **[ACCESSING AND CHANGING ARRAYS](#accessing-and-changing-arrays)**
+- **[COPY ARRAY (BE CARREFULL)](#copy-array-be-carrefull---documentation)**
 
 
 
@@ -91,6 +92,7 @@ int32
 - **[GET A SPECIFIC ELEMENT](#get-a-specific-element)**
 - **[GET COL](#get-col)**
 - **[GET ROW](#get-row)**
+- **[CHANGE VALUE](#change-value)**
 
 ## GET A SPECIFIC ELEMENT
 ```python
@@ -129,12 +131,61 @@ array[0, :]
 [ 8  9 10]
 ```
 
-### DATAFRAME - **[DOCUMENTATION]()**
+## CHANGE VALUE
+```python
+array[pos][pos][pos].... = VALUE
+
+EX.:
+array
+[[1 2 3]
+ [4 5 6]]
+ 
+array[0,1] = 100 
+
+array
+[[1 100 3]
+ [4 5  6]]
+
+```
+### COPY ARRAY (BE CARREFULL) - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.copy.html)**
+For copy array, use
+```python
+array.copy()
+
+EX.:
+array_a
+[[1 2 3]
+ [4 5 6]]
+ 
+array_b = array_a.copy()
+
+[[1 2 3]
+ [4 5 6]]
+```
+**OBS.:** Be careful when copying arrays, because if you make an assignment from one variable to another, the values ​​will be replaced in two variables when one of them receives the value
+```python
+EX.:
+array_a
+[[1 2 3]
+ [4 5 6]]
+ 
+array_b = array_a
+array_b[0,1] = 100 
+ 
+array_a
+[[1 100 3]
+ [4 5  6]]
+ 
+array_b
+[[1 100 3]
+ [4 5  6]]
+
+```
+### COPY  - **[DOCUMENTATION]()**
 ```python
 
 
 ```
-
 
 
 
