@@ -2,7 +2,7 @@
 
 # SUMMMARY
 - **[INTRODUCTION](#introduction)**
-- **[CREATE ARRAY](#create-array)**
+- **[ARRAY BASICS](#array-basics)**
 
 
 
@@ -13,17 +13,41 @@ This module aims to summarize codes that can help in data science using numpy, s
 
 
 
-# CREATE ARRAY https://numpy.org/doc/stable/reference/generated/numpy.array.html
+# ARRAY BASICS
+- **[CREATE ARRAY](#create-array)**
+- **[CREATE ARRAY](#array)**
+
+
+
+https://numpy.org/doc/stable/reference/generated/numpy.array.html
+### CREATE ARRAY - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.array.html)**
+To create an array, you can fill or declare dimensions, see the example below.<br>
+**OBS.:** The dtype parameter is used to convert the declared array according to the type entered in the parameter, it is usually used for economical memory space.
+```python
+array = numpy.array(object, dtype=None, ndmin=0)
+
+EX.:
+array = np.array([[1, 2, 3],[4, 5, 6]])
+
+array
+[[1 2 3]
+ [4 5 6]]
+```
+For create a array more easily with more dimensions, use:
+```python
+EX.:
+array = np.array([1, 2, 3], ndmin=4)
+
+array
+[[[[1 2 3]]]]
+```
 
 
 
 
-# INFORMATION ABOUT DATAFRAME AND EDITS
-- **[DATAFRAME.INFO()](#dataframeinfo---documentation)**
-- **[DATAFRAME.DESCRIBE()](#dataframedescribe---documentation)**
 
 
-### DATAFRAME.INFO() - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html)**
+### DATAFRAME - **[DOCUMENTATION]()**
 ```python
 
 
