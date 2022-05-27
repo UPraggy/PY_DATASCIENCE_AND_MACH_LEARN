@@ -17,6 +17,7 @@ This module aims to summarize codes that can help in data science using numpy, s
 
 # ARRAY BASICS
 - **[CREATE ARRAY](#create-array---documentation)**
+- **[CREATE PRE-DEFINED ARRAY](#create-pre---defined-array)**
 - **[GET INFORMATIONS](#get-informations)**
   - **[DIMENSIONS](#dimensions---documentation)**
   - **[SHAPE (ROWS AND COLS)](#shaperows-and-cols---documentation)**
@@ -54,9 +55,22 @@ array = np.array([[1, 2, 3],[4, 5, 6, 7]], dtype='object')
 [list([1, 2, 3]) list([4, 5, 6, 7])]
 ```
 
+
+## CREATE PRE-DEFINED ARRAY
+
+### CREATE BY RANGE - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.arange.html?highlight=numpy%20arange#)**
+```python
+numpy.arange(start,stop, step = 1)
+EX.:
+array = np.arange(0,11)
+
+array
+[0,1,2,3,4,5,6,7,8,9,10]
+```
+
 ## GET INFORMATIONS
 
-### DIMENSIONS - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.ndim.html)**
+### DIMENSIONS - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html)**
 For get dimensions of an array, use:
 ```python
 array
