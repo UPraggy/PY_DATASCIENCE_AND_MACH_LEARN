@@ -105,6 +105,7 @@ int32
 - **[GET A SPECIFIC ELEMENT](#get-a-specific-element)**
 - **[GET COL](#get-col)**
 - **[GET ROW](#get-row)**
+- **[CONDITIONALS SELECTIONS](#conditional-selections)**
 - **[CHANGE VALUE](#change-value)**
 
 ## GET A SPECIFIC ELEMENT
@@ -143,7 +144,24 @@ array
 array[0, :]
 [ 8  9 10]
 ```
+## CONDITIONAL SELECTIONS
+You can select data in your array according to pre-set conditions:
+```python
+a = np.array([[[1, 2, 3],[4, 5, 6]],[[8,9,10],[11,12,13]]])
 
+bigger_than_5 = a > 5
+
+bigger_than_5
+[[[False False False]
+  [False False  True]]
+
+ [[ True  True  True]
+  [ True  True  True]]]
+
+
+a[bigger_than_5]
+[ 6  8  9 10 11 12 13]
+```
 ## CHANGE VALUE
 ```python
 array[pos][pos][pos].... = VALUE
