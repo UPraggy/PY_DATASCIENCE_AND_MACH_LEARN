@@ -24,7 +24,6 @@ This module aims to summarize codes that can help in data science using numpy, s
   - **[GET TYPE](#get-type---documentation)**
 
 
-https://numpy.org/doc/stable/reference/generated/numpy.array.html
 ## CREATE ARRAY - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.array.html)**
 To create an array, you can fill or declare dimensions, see the example below.<br>
 **OBS.:** The dtype parameter is used to convert the declared array according to the type entered in the parameter, it is usually used for economical memory space.
