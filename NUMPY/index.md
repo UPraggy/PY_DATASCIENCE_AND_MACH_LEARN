@@ -160,6 +160,18 @@ array
  [4 5  6]]
 
 ```
+**OBS.:** You can too change more of a value by index:
+```python
+EX.:
+array
+[1 2 3 4 5 6 7 8 9 10]
+ 
+array[0:3] = 100 
+
+array
+[100 100 100 4 5 6 7 8 9 10]
+
+```
 ### COPY ARRAY (BE CARREFULL) - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.copy.html)**
 For copy array, use
 ```python
