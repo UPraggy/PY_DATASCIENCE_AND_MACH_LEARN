@@ -153,7 +153,13 @@ array
   
  [[ 8  9 10]
   [11 12 13]]]
+  
+EX1.:
+array[array > 5]
+[ 6  8  9 10 11 12 13]
 
+
+EX2.:
 bigger_than_5 = array > 5
 
 bigger_than_5
