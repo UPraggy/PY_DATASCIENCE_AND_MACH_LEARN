@@ -92,7 +92,25 @@ array([[ 1.,  0.,  0.],
        [ 0.,  1.,  0.],
        [ 0.,  0.,  1.]])
 ```
+### CREATE ARRAY WITH RANDOM NUMBERS - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/random/generated/numpy.random.rand.html)**
+```python
+np.random.rand(num)
 
+EX.:
+np.random.rand(5)
+array([0.22189362, 0.45847791, 0.81579294, 0.45695971, 0.84132014])
+```
+
+### CREATE ARRAY WITH A NUMBER OF NUMBERS BETWEEN TWO VALUES - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)**
+```python
+np.linspace(start,stop,num)
+
+EX.:
+array = np.linspace(0,5,8)
+array([0.        , 0.71428571, 1.42857143, 2.14285714, 2.85714286,
+       3.57142857, 4.28571429, 5.        ])
+        
+```
 ## GET INFORMATIONS
 
 ### DIMENSIONS - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html)**
