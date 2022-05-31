@@ -66,6 +66,22 @@ array = np.arange(0,11)
 array
 [0,1,2,3,4,5,6,7,8,9,10]
 ```
+### CREATE ARRAY OF ZEROS
+```python
+np.zeros()
+EX.:
+array = np.zeros(10)
+
+array([ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
+```
+### CREATE ARRAY OF ZEROS
+```python
+np.ones()
+EX.:
+array = np.ones(10)
+
+array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+```
 
 ## GET INFORMATIONS
 
@@ -202,7 +218,7 @@ array
 [100 100 100 4 5 6 7 8 9 10]
 
 ```
-### CHANGE DIMENSION - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.copy.html)**
+### CHANGE DIMENSION - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.reshape.html)**
 ```python
 array.reshape()
 
