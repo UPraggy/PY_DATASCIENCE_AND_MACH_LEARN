@@ -57,7 +57,7 @@ array = np.array([[1, 2, 3],[4, 5, 6, 7]], dtype='object')
 
 ## CREATE PRE-DEFINED ARRAY
 
-### CREATE BY RANGE - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.arange.html?highlight=numpy%20arange#)**
+### CREATE BY RANGE - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.arange.html)**
 ```python
 numpy.arange(start,stop, step = 1)
 EX.:
@@ -66,7 +66,7 @@ array = np.arange(0,11)
 array
 [0,1,2,3,4,5,6,7,8,9,10]
 ```
-### CREATE ARRAY OF ZEROS
+### CREATE ARRAY OF ZEROS - **[DOCUMENTATION]((https://numpy.org/doc/stable/reference/generated/numpy.zeros.html)**
 ```python
 np.zeros()
 EX.:
@@ -74,13 +74,23 @@ array = np.zeros(10)
 
 array([ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
 ```
-### CREATE ARRAY OF ZEROS
+### CREATE ARRAY OF ONES - **[DOCUMENTATION]((https://numpy.org/doc/stable/reference/generated/numpy.ones.html)**
 ```python
 np.ones()
 EX.:
 array = np.ones(10)
 
 array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+```
+### CREATE IDENTITY MATRIX - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.eye.html)**
+```python
+np.eye()
+EX.:
+array = np.eye(3)
+
+array([[ 1.,  0.,  0.],
+       [ 0.,  1.,  0.],
+       [ 0.,  0.,  1.]])
 ```
 
 ## GET INFORMATIONS
