@@ -107,8 +107,9 @@ int32
 - **[GET ROW](#get-row)**
 - **[CONDITIONALS SELECTIONS](#conditional-selections)**
 - **[CHANGE VALUE](#change-value)**
+- **[CHANGE DIMENSION](#change-dimension---documentation)**
 
-## GET A SPECIFIC ELEMENT
+### GET A SPECIFIC ELEMENT
 ```python
 array[pos][pos][pos]....
 
@@ -123,7 +124,7 @@ array
 array[0, 1, 0]
 4
 ```
-## GET COL
+### GET COL
 ```python
 EX.:
 array
@@ -134,7 +135,7 @@ array[:, 0]
 [8 11]
 
 ```
-## GET ROW
+### GET ROW
 ```python
 EX.:
 array
@@ -144,7 +145,7 @@ array
 array[0, :]
 [ 8  9 10]
 ```
-## CONDITIONAL SELECTIONS
+### CONDITIONAL SELECTIONS
 You can select data in your array according to pre-set conditions:
 ```python
 array
@@ -173,7 +174,7 @@ bigger_than_5
 array[bigger_than_5]
 [ 6  8  9 10 11 12 13]
 ```
-## CHANGE VALUE
+### CHANGE VALUE
 ```python
 array[pos][pos][pos].... = VALUE
 
@@ -201,7 +202,24 @@ array
 [100 100 100 4 5 6 7 8 9 10]
 
 ```
-### COPY ARRAY (BE CARREFULL) - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.copy.html)**
+### CHANGE DIMENSION - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.copy.html)**
+```python
+array.reshape()
+
+EX.:
+array = np.arange(9)
+
+array([0, 1, 2, 3, 4, 5, 6, 7, 8])
+
+array= array.reshape(3,3)
+array([[0, 1, 2],
+       [3, 4, 5],
+       [6, 7, 8]])
+
+```
+
+
+## COPY ARRAY (BE CARREFULL) - **[DOCUMENTATION](https://numpy.org/doc/stable/reference/generated/numpy.copy.html)**
 For copy array, use
 ```python
 array.copy()
@@ -235,11 +253,7 @@ array_b
  [4 5  6]]
 
 ```
-### COPY  - **[DOCUMENTATION]()**
-```python
 
-
-```
 
 
 
