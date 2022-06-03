@@ -16,6 +16,7 @@
   - **[JOINING OR CONCATENING DATAFRAMES](#joining-or-concatening-dataframes)**
 - **[GROUP BY](#group-by)**
 - **[ORDERING](#ordering---documentation)**
+- **[HONORABLE MENTIONS](#honorable-mentions)**
 
 
 
@@ -1369,8 +1370,96 @@ df
 3      Willie Gibson   14      0
 ```
 
+# HONORABLE MENTIONS
 
+### Transpose 
+Swap column for row and vice versa
+```python
+DataFrame.transpose(copy=False)
 
+EX.:
+df1
+   col1  col2
+0     1     3
+1     2     4
+
+df1_transposed = df1.T # or df1.transpose()
+df1_transposed
+      0  1
+col1  1  2
+col2  3  4
+```
+
+### Transpose 
+Select data (row or column) according to a pre-defined range
+```python
+DataFrame.truncate(before=None, after=None, axis=None, copy=True)
+
+EX.:
+df
+   A  B  C
+1  a  f  k
+2  b  g  l
+3  c  h  m
+4  d  i  n
+5  e  j  o
+df.truncate(before=2, after=4)
+   A  B  C
+2  b  g  l
+3  c  h  m
+4  d  i  n
+
+This works with dates too:
+
+dates = pd.date_range('2016-01-01', '2016-01-15', freq='d')
+df = pd.DataFrame(index=dates, data={'A': 1})
+
+df
+            A
+2016-01-01  1
+2016-01-02  1
+2016-01-03  1
+2016-01-04  1
+2016-01-05  1
+2016-01-06  1
+2016-01-07  1
+2016-01-08  1
+2016-01-09  1
+2016-01-10  1
+2016-01-11  1
+2016-01-12  1
+2016-01-13  1
+2016-01-14  1
+2016-01-15  1
+
+df = df.truncate(before=pd.Timestamp('2016-01-05'),
+            after=pd.Timestamp('2016-01-08'))
+df
+            A
+2016-01-05  1
+2016-01-06  1
+2016-01-07  1
+2016-01-08  1
+```
+
+### Transform 
+Change values based in a function
+```python
+DataFrame.transform( func , axis = 0)
+
+EX.:
+df
+   A  B
+0  0  1
+1  1  2
+2  2  3
+
+df.transform(lambda x: x + 1)
+   A  B
+0  1  2
+1  2  3
+2  3  4
+```
 
 
 
