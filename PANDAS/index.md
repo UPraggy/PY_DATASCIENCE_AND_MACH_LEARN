@@ -1372,7 +1372,7 @@ df
 
 # HONORABLE MENTIONS
 
-### Transpose 
+### Transpose - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transpose.html)
 Swap column for row and vice versa
 ```python
 DataFrame.transpose(copy=False)
@@ -1390,7 +1390,7 @@ col1  1  2
 col2  3  4
 ```
 
-### Transpose 
+### Trucate - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.truncate.html) 
 Select data (row or column) according to a pre-defined range
 ```python
 DataFrame.truncate(before=None, after=None, axis=None, copy=True)
@@ -1441,8 +1441,37 @@ df
 2016-01-07  1
 2016-01-08  1
 ```
+### True div (MATH OPERATIONS) - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.truediv.html)
+```python
+df
+           angles  degrees
+circle          0      360
+triangle        3      180
+rectangle       4      360
 
-### Transform 
+Add a scalar with operator version which return the same results.
+
+df + 1
+           angles  degrees
+circle          1      361
+triangle        4      181
+rectangle       5      361
+
+df.add(1)
+           angles  degrees
+circle          1      361
+triangle        4      181
+rectangle       5      361
+
+Divide by constant with reverse version.
+
+df.div(10)
+           angles  degrees
+circle        0.0     36.0
+triangle      0.3     18.0
+rectangle     0.4     36.0
+```
+### Transform - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.transform.html)
 Change values based in a function
 ```python
 DataFrame.transform( func , axis = 0)
