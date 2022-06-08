@@ -1,666 +1,461 @@
-{
- "cells": [
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "___\n",
-    "\n",
-    "<a href='http://www.pieriandata.com'> <img src='../../Pierian_Data_Logo.png' /></a>\n",
-    "___\n",
-    "# Ecommerce Purchases Exercise\n",
-    "\n",
-    "In this Exercise you will be given some Fake Data about some purchases done through Amazon! Just go ahead and follow the directions and try your best to answer the questions and complete the tasks. Feel free to reference the solutions. Most of the tasks can be solved in different ways. For the most part, the questions get progressively harder.\n",
-    "\n",
-    "Please excuse anything that doesn't make \"Real-World\" sense in the dataframe, all the data is fake and made-up.\n",
-    "\n",
-    "Also note that all of these questions can be answered with one line of code.\n",
-    "____\n",
-    "** Import pandas and read in the Ecommerce Purchases csv file and set it to a DataFrame called ecom. **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 84,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 86,
-   "metadata": {
-    "collapsed": true
-   },
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "**Check the head of the DataFrame.**"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 87,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>Address</th>\n",
-       "      <th>Lot</th>\n",
-       "      <th>AM or PM</th>\n",
-       "      <th>Browser Info</th>\n",
-       "      <th>Company</th>\n",
-       "      <th>Credit Card</th>\n",
-       "      <th>CC Exp Date</th>\n",
-       "      <th>CC Security Code</th>\n",
-       "      <th>CC Provider</th>\n",
-       "      <th>Email</th>\n",
-       "      <th>Job</th>\n",
-       "      <th>IP Address</th>\n",
-       "      <th>Language</th>\n",
-       "      <th>Purchase Price</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>16629 Pace Camp Apt. 448\\nAlexisborough, NE 77...</td>\n",
-       "      <td>46 in</td>\n",
-       "      <td>PM</td>\n",
-       "      <td>Opera/9.56.(X11; Linux x86_64; sl-SI) Presto/2...</td>\n",
-       "      <td>Martinez-Herman</td>\n",
-       "      <td>6011929061123406</td>\n",
-       "      <td>02/20</td>\n",
-       "      <td>900</td>\n",
-       "      <td>JCB 16 digit</td>\n",
-       "      <td>pdunlap@yahoo.com</td>\n",
-       "      <td>Scientist, product/process development</td>\n",
-       "      <td>149.146.147.205</td>\n",
-       "      <td>el</td>\n",
-       "      <td>98.14</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>9374 Jasmine Spurs Suite 508\\nSouth John, TN 8...</td>\n",
-       "      <td>28 rn</td>\n",
-       "      <td>PM</td>\n",
-       "      <td>Opera/8.93.(Windows 98; Win 9x 4.90; en-US) Pr...</td>\n",
-       "      <td>Fletcher, Richards and Whitaker</td>\n",
-       "      <td>3337758169645356</td>\n",
-       "      <td>11/18</td>\n",
-       "      <td>561</td>\n",
-       "      <td>Mastercard</td>\n",
-       "      <td>anthony41@reed.com</td>\n",
-       "      <td>Drilling engineer</td>\n",
-       "      <td>15.160.41.51</td>\n",
-       "      <td>fr</td>\n",
-       "      <td>70.73</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>Unit 0065 Box 5052\\nDPO AP 27450</td>\n",
-       "      <td>94 vE</td>\n",
-       "      <td>PM</td>\n",
-       "      <td>Mozilla/5.0 (compatible; MSIE 9.0; Windows NT ...</td>\n",
-       "      <td>Simpson, Williams and Pham</td>\n",
-       "      <td>675957666125</td>\n",
-       "      <td>08/19</td>\n",
-       "      <td>699</td>\n",
-       "      <td>JCB 16 digit</td>\n",
-       "      <td>amymiller@morales-harrison.com</td>\n",
-       "      <td>Customer service manager</td>\n",
-       "      <td>132.207.160.22</td>\n",
-       "      <td>de</td>\n",
-       "      <td>0.95</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>7780 Julia Fords\\nNew Stacy, WA 45798</td>\n",
-       "      <td>36 vm</td>\n",
-       "      <td>PM</td>\n",
-       "      <td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0 ...</td>\n",
-       "      <td>Williams, Marshall and Buchanan</td>\n",
-       "      <td>6011578504430710</td>\n",
-       "      <td>02/24</td>\n",
-       "      <td>384</td>\n",
-       "      <td>Discover</td>\n",
-       "      <td>brent16@olson-robinson.info</td>\n",
-       "      <td>Drilling engineer</td>\n",
-       "      <td>30.250.74.19</td>\n",
-       "      <td>es</td>\n",
-       "      <td>78.04</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>4</th>\n",
-       "      <td>23012 Munoz Drive Suite 337\\nNew Cynthia, TX 5...</td>\n",
-       "      <td>20 IE</td>\n",
-       "      <td>AM</td>\n",
-       "      <td>Opera/9.58.(X11; Linux x86_64; it-IT) Presto/2...</td>\n",
-       "      <td>Brown, Watson and Andrews</td>\n",
-       "      <td>6011456623207998</td>\n",
-       "      <td>10/25</td>\n",
-       "      <td>678</td>\n",
-       "      <td>Diners Club / Carte Blanche</td>\n",
-       "      <td>christopherwright@gmail.com</td>\n",
-       "      <td>Fine artist</td>\n",
-       "      <td>24.140.33.94</td>\n",
-       "      <td>es</td>\n",
-       "      <td>77.82</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "                                             Address    Lot AM or PM  \\\n",
-       "0  16629 Pace Camp Apt. 448\\nAlexisborough, NE 77...  46 in       PM   \n",
-       "1  9374 Jasmine Spurs Suite 508\\nSouth John, TN 8...  28 rn       PM   \n",
-       "2                   Unit 0065 Box 5052\\nDPO AP 27450  94 vE       PM   \n",
-       "3              7780 Julia Fords\\nNew Stacy, WA 45798  36 vm       PM   \n",
-       "4  23012 Munoz Drive Suite 337\\nNew Cynthia, TX 5...  20 IE       AM   \n",
-       "\n",
-       "                                        Browser Info  \\\n",
-       "0  Opera/9.56.(X11; Linux x86_64; sl-SI) Presto/2...   \n",
-       "1  Opera/8.93.(Windows 98; Win 9x 4.90; en-US) Pr...   \n",
-       "2  Mozilla/5.0 (compatible; MSIE 9.0; Windows NT ...   \n",
-       "3  Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0 ...   \n",
-       "4  Opera/9.58.(X11; Linux x86_64; it-IT) Presto/2...   \n",
-       "\n",
-       "                           Company       Credit Card CC Exp Date  \\\n",
-       "0                  Martinez-Herman  6011929061123406       02/20   \n",
-       "1  Fletcher, Richards and Whitaker  3337758169645356       11/18   \n",
-       "2       Simpson, Williams and Pham      675957666125       08/19   \n",
-       "3  Williams, Marshall and Buchanan  6011578504430710       02/24   \n",
-       "4        Brown, Watson and Andrews  6011456623207998       10/25   \n",
-       "\n",
-       "   CC Security Code                  CC Provider  \\\n",
-       "0               900                 JCB 16 digit   \n",
-       "1               561                   Mastercard   \n",
-       "2               699                 JCB 16 digit   \n",
-       "3               384                     Discover   \n",
-       "4               678  Diners Club / Carte Blanche   \n",
-       "\n",
-       "                            Email                                     Job  \\\n",
-       "0               pdunlap@yahoo.com  Scientist, product/process development   \n",
-       "1              anthony41@reed.com                       Drilling engineer   \n",
-       "2  amymiller@morales-harrison.com                Customer service manager   \n",
-       "3     brent16@olson-robinson.info                       Drilling engineer   \n",
-       "4     christopherwright@gmail.com                             Fine artist   \n",
-       "\n",
-       "        IP Address Language  Purchase Price  \n",
-       "0  149.146.147.205       el           98.14  \n",
-       "1     15.160.41.51       fr           70.73  \n",
-       "2   132.207.160.22       de            0.95  \n",
-       "3     30.250.74.19       es           78.04  \n",
-       "4     24.140.33.94       es           77.82  "
-      ]
-     },
-     "execution_count": 87,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** How many rows and columns are there? **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 88,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "<class 'pandas.core.frame.DataFrame'>\n",
-      "RangeIndex: 10000 entries, 0 to 9999\n",
-      "Data columns (total 14 columns):\n",
-      "Address             10000 non-null object\n",
-      "Lot                 10000 non-null object\n",
-      "AM or PM            10000 non-null object\n",
-      "Browser Info        10000 non-null object\n",
-      "Company             10000 non-null object\n",
-      "Credit Card         10000 non-null int64\n",
-      "CC Exp Date         10000 non-null object\n",
-      "CC Security Code    10000 non-null int64\n",
-      "CC Provider         10000 non-null object\n",
-      "Email               10000 non-null object\n",
-      "Job                 10000 non-null object\n",
-      "IP Address          10000 non-null object\n",
-      "Language            10000 non-null object\n",
-      "Purchase Price      10000 non-null float64\n",
-      "dtypes: float64(1), int64(2), object(11)\n",
-      "memory usage: 1.1+ MB\n"
-     ]
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** What is the average Purchase Price? **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 90,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "50.34730200000025"
-      ]
-     },
-     "execution_count": 90,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** What were the highest and lowest purchase prices? **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 92,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "99.989999999999995"
-      ]
-     },
-     "execution_count": 92,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 93,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "0.0"
-      ]
-     },
-     "execution_count": 93,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** How many people have English 'en' as their Language of choice on the website? **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 94,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "Address             1098\n",
-       "Lot                 1098\n",
-       "AM or PM            1098\n",
-       "Browser Info        1098\n",
-       "Company             1098\n",
-       "Credit Card         1098\n",
-       "CC Exp Date         1098\n",
-       "CC Security Code    1098\n",
-       "CC Provider         1098\n",
-       "Email               1098\n",
-       "Job                 1098\n",
-       "IP Address          1098\n",
-       "Language            1098\n",
-       "Purchase Price      1098\n",
-       "dtype: int64"
-      ]
-     },
-     "execution_count": 94,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** How many people have the job title of \"Lawyer\" ? **\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 95,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "<class 'pandas.core.frame.DataFrame'>\n",
-      "Int64Index: 30 entries, 470 to 9979\n",
-      "Data columns (total 14 columns):\n",
-      "Address             30 non-null object\n",
-      "Lot                 30 non-null object\n",
-      "AM or PM            30 non-null object\n",
-      "Browser Info        30 non-null object\n",
-      "Company             30 non-null object\n",
-      "Credit Card         30 non-null int64\n",
-      "CC Exp Date         30 non-null object\n",
-      "CC Security Code    30 non-null int64\n",
-      "CC Provider         30 non-null object\n",
-      "Email               30 non-null object\n",
-      "Job                 30 non-null object\n",
-      "IP Address          30 non-null object\n",
-      "Language            30 non-null object\n",
-      "Purchase Price      30 non-null float64\n",
-      "dtypes: float64(1), int64(2), object(11)\n",
-      "memory usage: 3.5+ KB\n"
-     ]
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** How many people made the purchase during the AM and how many people made the purchase during PM ? **\n",
-    "\n",
-    "**(Hint: Check out [value_counts()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.value_counts.html) ) **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 96,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "PM    5068\n",
-       "AM    4932\n",
-       "Name: AM or PM, dtype: int64"
-      ]
-     },
-     "execution_count": 96,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** What are the 5 most common Job Titles? **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 97,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "Interior and spatial designer    31\n",
-       "Lawyer                           30\n",
-       "Social researcher                28\n",
-       "Purchasing manager               27\n",
-       "Designer, jewellery              27\n",
-       "Name: Job, dtype: int64"
-      ]
-     },
-     "execution_count": 97,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** Someone made a purchase that came from Lot: \"90 WT\" , what was the Purchase Price for this transaction? **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 99,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "513    75.1\n",
-       "Name: Purchase Price, dtype: float64"
-      ]
-     },
-     "execution_count": 99,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** What is the email of the person with the following Credit Card Number: 4926535242672853 **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 100,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "1234    bondellen@williams-garza.com\n",
-       "Name: Email, dtype: object"
-      ]
-     },
-     "execution_count": 100,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** How many people have American Express as their Credit Card Provider *and* made a purchase above $95 ?**"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 101,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "Address             39\n",
-       "Lot                 39\n",
-       "AM or PM            39\n",
-       "Browser Info        39\n",
-       "Company             39\n",
-       "Credit Card         39\n",
-       "CC Exp Date         39\n",
-       "CC Security Code    39\n",
-       "CC Provider         39\n",
-       "Email               39\n",
-       "Job                 39\n",
-       "IP Address          39\n",
-       "Language            39\n",
-       "Purchase Price      39\n",
-       "dtype: int64"
-      ]
-     },
-     "execution_count": 101,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** Hard: How many people have a credit card that expires in 2025? **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 102,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "1033"
-      ]
-     },
-     "execution_count": 102,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "** Hard: What are the top 5 most popular email providers/hosts (e.g. gmail.com, yahoo.com, etc...) **"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 56,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "hotmail.com     1638\n",
-       "yahoo.com       1616\n",
-       "gmail.com       1605\n",
-       "smith.com         42\n",
-       "williams.com      37\n",
-       "Name: Email, dtype: int64"
-      ]
-     },
-     "execution_count": 56,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "# Great Job!"
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.5.1"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 0
-}
+
+
+** Import pandas as pd.**
+
+
+```python
+import pandas as pd
+```
+
+** Read Salaries.csv as a dataframe called sal.**
+
+
+```python
+sal = pd.read_csv('Salaries.csv')
+```
+
+** Check the head of the DataFrame. **
+
+
+```python
+sal.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>EmployeeName</th>
+      <th>JobTitle</th>
+      <th>BasePay</th>
+      <th>OvertimePay</th>
+      <th>OtherPay</th>
+      <th>Benefits</th>
+      <th>TotalPay</th>
+      <th>TotalPayBenefits</th>
+      <th>Year</th>
+      <th>Notes</th>
+      <th>Agency</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>NATHANIEL FORD</td>
+      <td>GENERAL MANAGER-METROPOLITAN TRANSIT AUTHORITY</td>
+      <td>167411.18</td>
+      <td>0.00</td>
+      <td>400184.25</td>
+      <td>NaN</td>
+      <td>567595.43</td>
+      <td>567595.43</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>GARY JIMENEZ</td>
+      <td>CAPTAIN III (POLICE DEPARTMENT)</td>
+      <td>155966.02</td>
+      <td>245131.88</td>
+      <td>137811.38</td>
+      <td>NaN</td>
+      <td>538909.28</td>
+      <td>538909.28</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>ALBERT PARDINI</td>
+      <td>CAPTAIN III (POLICE DEPARTMENT)</td>
+      <td>212739.13</td>
+      <td>106088.18</td>
+      <td>16452.60</td>
+      <td>NaN</td>
+      <td>335279.91</td>
+      <td>335279.91</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>CHRISTOPHER CHONG</td>
+      <td>WIRE ROPE CABLE MAINTENANCE MECHANIC</td>
+      <td>77916.00</td>
+      <td>56120.71</td>
+      <td>198306.90</td>
+      <td>NaN</td>
+      <td>332343.61</td>
+      <td>332343.61</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>PATRICK GARDNER</td>
+      <td>DEPUTY CHIEF OF DEPARTMENT,(FIRE DEPARTMENT)</td>
+      <td>134401.60</td>
+      <td>9737.00</td>
+      <td>182234.59</td>
+      <td>NaN</td>
+      <td>326373.19</td>
+      <td>326373.19</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+** Use the .info() method to find out how many entries there are.**
+
+
+```python
+sal.info() # 148654 Entries
+```
+
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 148654 entries, 0 to 148653
+    Data columns (total 13 columns):
+    Id                  148654 non-null int64
+    EmployeeName        148654 non-null object
+    JobTitle            148654 non-null object
+    BasePay             148045 non-null float64
+    OvertimePay         148650 non-null float64
+    OtherPay            148650 non-null float64
+    Benefits            112491 non-null float64
+    TotalPay            148654 non-null float64
+    TotalPayBenefits    148654 non-null float64
+    Year                148654 non-null int64
+    Notes               0 non-null float64
+    Agency              148654 non-null object
+    Status              0 non-null float64
+    dtypes: float64(8), int64(2), object(3)
+    memory usage: 14.7+ MB
+    
+
+**What is the average BasePay ?**
+
+
+```python
+sal['BasePay'].mean()
+```
+
+
+
+
+    66325.44884050643
+
+
+
+** What is the highest amount of OvertimePay in the dataset ? **
+
+
+```python
+sal['OvertimePay'].max()
+```
+
+
+
+
+    245131.88
+
+
+
+** What is the job title of  JOSEPH DRISCOLL ? Note: Use all caps, otherwise you may get an answer that doesn't match up (there is also a lowercase Joseph Driscoll). **
+
+
+```python
+sal[sal['EmployeeName']=='JOSEPH DRISCOLL']['JobTitle']
+```
+
+
+
+
+    24    CAPTAIN, FIRE SUPPRESSION
+    Name: JobTitle, dtype: object
+
+
+
+** How much does JOSEPH DRISCOLL make (including benefits)? **
+
+
+```python
+sal[sal['EmployeeName']=='JOSEPH DRISCOLL']['TotalPayBenefits']
+```
+
+
+
+
+    24    270324.91
+    Name: TotalPayBenefits, dtype: float64
+
+
+
+** What is the name of highest paid person (including benefits)?**
+
+
+```python
+sal[sal['TotalPayBenefits']== sal['TotalPayBenefits'].max()] #['EmployeeName']
+# or
+# sal.loc[sal['TotalPayBenefits'].idxmax()]
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>EmployeeName</th>
+      <th>JobTitle</th>
+      <th>BasePay</th>
+      <th>OvertimePay</th>
+      <th>OtherPay</th>
+      <th>Benefits</th>
+      <th>TotalPay</th>
+      <th>TotalPayBenefits</th>
+      <th>Year</th>
+      <th>Notes</th>
+      <th>Agency</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>NATHANIEL FORD</td>
+      <td>GENERAL MANAGER-METROPOLITAN TRANSIT AUTHORITY</td>
+      <td>167411.18</td>
+      <td>0.0</td>
+      <td>400184.25</td>
+      <td>NaN</td>
+      <td>567595.43</td>
+      <td>567595.43</td>
+      <td>2011</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+** What is the name of lowest paid person (including benefits)? Do you notice something strange about how much he or she is paid?**
+
+
+```python
+sal[sal['TotalPayBenefits']== sal['TotalPayBenefits'].min()] #['EmployeeName']
+# or
+# sal.loc[sal['TotalPayBenefits'].idxmax()]['EmployeeName']
+
+## ITS NEGATIVE!! VERY STRANGE
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>EmployeeName</th>
+      <th>JobTitle</th>
+      <th>BasePay</th>
+      <th>OvertimePay</th>
+      <th>OtherPay</th>
+      <th>Benefits</th>
+      <th>TotalPay</th>
+      <th>TotalPayBenefits</th>
+      <th>Year</th>
+      <th>Notes</th>
+      <th>Agency</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>148653</th>
+      <td>148654</td>
+      <td>Joe Lopez</td>
+      <td>Counselor, Log Cabin Ranch</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-618.13</td>
+      <td>0.0</td>
+      <td>-618.13</td>
+      <td>-618.13</td>
+      <td>2014</td>
+      <td>NaN</td>
+      <td>San Francisco</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+** What was the average (mean) BasePay of all employees per year? (2011-2014) ? **
+
+
+```python
+sal.groupby('Year').mean()['BasePay']
+```
+
+
+
+
+    Year
+    2011    63595.956517
+    2012    65436.406857
+    2013    69630.030216
+    2014    66564.421924
+    Name: BasePay, dtype: float64
+
+
+
+** How many unique job titles are there? **
+
+
+```python
+sal['JobTitle'].nunique()
+```
+
+
+
+
+    2159
+
+
+
+** What are the top 5 most common jobs? **
+
+
+```python
+sal['JobTitle'].value_counts().head(5)
+```
+
+
+
+
+    Transit Operator                7036
+    Special Nurse                   4389
+    Registered Nurse                3736
+    Public Svc Aide-Public Works    2518
+    Police Officer 3                2421
+    Name: JobTitle, dtype: int64
+
+
+
+** How many Job Titles were represented by only one person in 2013? (e.g. Job Titles with only one occurence in 2013?) **
+
+
+```python
+sum(sal[sal['Year']==2013]['JobTitle'].value_counts() == 1) # pretty tricky way to do this...
+```
+
+
+
+
+    202
+
+
+
+** How many people have the word Chief in their job title? (This is pretty tricky) **
+
+
+```python
+def chief_string(title):
+    if 'chief' in title.lower():
+        return True
+    else:
+        return False
+```
+
+
+```python
+sum(sal['JobTitle'].apply(lambda x: chief_string(x)))
+```
+
+
+
+
+    477
+
+
+
+** Bonus: Is there a correlation between length of the Job Title string and Salary? **
+
+
+```python
+sal['title_len'] = sal['JobTitle'].apply(len)
+```
+
+
+```python
+sal[['title_len','TotalPayBenefits']].corr() # No correlation.
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title_len</th>
+      <th>TotalPayBenefits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>title_len</th>
+      <td>1.000000</td>
+      <td>-0.036878</td>
+    </tr>
+    <tr>
+      <th>TotalPayBenefits</th>
+      <td>-0.036878</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+# REF
