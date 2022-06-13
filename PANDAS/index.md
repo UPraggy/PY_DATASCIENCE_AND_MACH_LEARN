@@ -802,6 +802,7 @@ RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created 
   - **[SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)](#select-column-with-unique-values-without-repeating-them---documentation)**
   - **[QUERY](#query---documentation)**
   - **[BY LIST](#by-list---documentation)**
+  - **[Data corresponding to a string or number]**[Data-corresponding-to-a-string-or-number]
   - **[FOR PERFORMACE](#for-performace)**
  
   
@@ -944,6 +945,33 @@ test_query
 13       23       beta       8.00
 ```
 
+#### Data corresponding to a string or number
+```python
+DataFrame.loc[df["COLUMN"].astype(str).str.contains(string, case = False)]
+
+OBS.: The "astype()" serves to convert data that are not strings, making it possible to search even in numbers
+The "^" serves to limit the searched data, if placed at the beginning it limits the searched data to only those that begin with the given string, below is an example
+
+EX.:
+test_query = df.loc[df["income"].astype(str).str.contains(f'^b', case = False)]
+
+test_query
+    int_col text_col  float_col
+1         2     beta       0.25
+10       12     beta       0.50
+13       23     beta       8.00
+
+EX2.:
+test_query = df.loc[df["income"].astype(str).str.contains(f'ta', case = False)]
+
+test_query
+    int_col text_col  float_col
+1         2     beta       0.25
+3         4    delta       0.75
+9        52     star       8.10
+10       12     beta       0.50
+13       23     beta       8.00
+```
 
 
 #### FOR PERFORMACE
@@ -1492,4 +1520,92 @@ df.transform(lambda x: x + 1)
 
 
 
+# APPLYING KNOWLEDGE
+EXERCISE DATASET
 
+```python
+import pandas as pd
+import numpy as np
+
+data = {
+'income': {0: '1.0.0.0.00.0.0', 1: '1.1.0.0.00.0.0', 2: '1.1.1.0.00.0.0',
+             3: '1.1.1.3.00.0.0', 4: '1.1.1.3.03.0.0', 5: '1.1.1.3.03.1.0',
+             6: '1.1.1.3.03.1.1', 7: '1.1.1.3.03.4.0', 8: '1.1.1.3.03.4.1',
+             9: '2.1.1.8.00.0.0', 10: '2.1.1.8.01.0.0', 11: '2.1.1.8.01.1.0',
+             12: '2.1.1.8.01.1.1', 13: '2.1.1.8.01.1.3', 14: '2.1.1.8.01.1.5',
+             15: '2.1.1.8.01.1.6', 16: '2.1.1.8.01.1.7', 17: '2.1.1.8.01.1.8',
+             18: '2.1.1.8.01.4.0', 19: '2.1.1.8.01.4.1'},
+ 'name_income': {0: 'CURRENT INCOME',
+                  1: 'TAXES, FEES AND IMPROVEMENT CONTRIBUTIONS',
+                  2: 'TAXES,
+                  3: 'TAX. WITHOUT INCOME OF ANY NATURE',
+                  4: 'TAX. WITHOUT INCOME - WITHHELD AT SOURCE',
+                  5: 'IMP. WITHOUT INCOME - WITHHELD AT SOURCE',
+                  6: 'TAX. WITHOUT INCOME-RETAINED SOURCE-WORK-MAIN',
+                  7: 'TAX. WITHOUT INCOME-RETAINED SOURCE-O',
+                  8: 'TAX. WITHOUT INCOME-RETAINED SOURCE-O',
+                  9: 'TRANSFER. SPECIFIC STATES/DF MUNIC.',
+                  10: 'TRANSFER. WITHOUT THE HERITAGE FOR STATES/DF/MUNIC.',
+                  11: 'TRANSFER. WITHOUT PROPERTY AND URBAN LAND',
+                  12: 'TRANSFER. WITHOUT PROPERTY AND URBAN LAND',
+                  13: 'TRANSFER. WITHOUT PROPERTY AND URBAN LAND',
+                  14: 'TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND',
+                  15: 'TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND',
+                  16: 'TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND',
+                  17: 'TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND',
+                  18: 'TRANSFER WITHOUT TR INTER VIVOS REAL AND UNLIMITED PROPERTIES',
+                  19: 'TRANSFER WITHOUT INTER VIVOS REAL ESTATE'},
+ 'January': {0: '1.968.194.101,30', 1: '1.063.431.716,89',
+             2: '912.211.623,16', 3: '38.942.791,34',
+             4: '38.942.791,34', 5: '35.698.402,79',
+             6: '35.698.402,79', 7: None,
+             8: '3.244.388,55', 9: '873.268.831,82',
+             10: '725.355.919,69', 11: '688.362.702,16',
+             12: '675.169.545,41', 13: '7.934.800,14',
+             14: '26.485,75', 15: '18.997,84',
+             16: '2.475.846,31', 17: '2.737.026,71',
+             18: '36.993.217,53', 19: None}} #19: '36.723.979,51'}}
+
+
+#load data into a DataFrame object:
+df = pd.DataFrame(data)
+```
+## TRATAMENT OF NUMBERS    
+```python
+######### format Strings to float #########
+df['January'] = df['January'].str.replace('.','').str.replace(',','.')
+df["January"] = df["January"].astype(float)
+
+######### Treatment of missing data #########
+df = df.replace(np.nan, 0, regex = True)
+
+### Checking for Duplicate Values 
+print(df.duplicated())
+
+######### Checking the number of null values in the column ########
+print(df["January"].isnull().sum())
+```
+
+## OPERATIONS
+
+```python
+######### Amounts received by revenue in January  #################
+print(df.groupby("name_income")["January"].sum())
+
+######### Sum of 'CURRENT INCOME' (revenues starting with 1.)  ####
+filter_income = df.loc[df["income"].astype(str).str.contains(f'^1.', case = False)]
+print(filter_income["January"].sum())
+
+
+######## Total average ########
+print(df['January'].mean())
+
+######## Total sum ########
+print(df['January'].sum())
+
+########  Sorting the highest values ###########
+
+#For 'nlargest' order from largest to smallest (10 #the 10 largest, 'January' filters the largest by the YOUR MES column)
+largest_15 = df.nlargest(15, 'January')
+print(largest_15)
+```
