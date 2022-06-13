@@ -17,6 +17,7 @@
 - **[GROUP BY](#group-by)**
 - **[ORDERING](#ordering---documentation)**
 - **[HONORABLE MENTIONS](#honorable-mentions)**
+- **[APPLYING KNOWLEDGE](#applying-knowledge)**
 
 
 
@@ -1537,7 +1538,7 @@ data = {
              18: '2.1.1.8.01.4.0', 19: '2.1.1.8.01.4.1'},
  'name_income': {0: 'CURRENT INCOME',
                   1: 'TAXES, FEES AND IMPROVEMENT CONTRIBUTIONS',
-                  2: 'TAXES,
+                  2: 'TAXES',
                   3: 'TAX. WITHOUT INCOME OF ANY NATURE',
                   4: 'TAX. WITHOUT INCOME - WITHHELD AT SOURCE',
                   5: 'IMP. WITHOUT INCOME - WITHHELD AT SOURCE',
@@ -1569,6 +1570,29 @@ data = {
 
 #load data into a DataFrame object:
 df = pd.DataFrame(data)
+
+df   
+       income                         name_income                                        January
+0   1.0.0.0.00.0.0  CURRENT INCOME                                                   1.968.194.101,30
+1   1.1.0.0.00.0.0  TAXES                                                            1.063.431.716,89
+2   1.1.1.0.00.0.0  TAX. WITHOUT INCOME OF ANY NATURE                                912.211.623,16
+3   1.1.1.3.00.0.0  TAX. WITHOUT INCOME - WITHHELD AT SOURCE                         38.942.791,34
+4   1.1.1.3.03.0.0  IMP. WITHOUT INCOME - WITHHELD AT SOURCE                         38.942.791,34
+5   1.1.1.3.03.1.0  TAX. WITHOUT INCOME-RETAINED SOURCE-WORK-MAIN                    35.698.402,79
+6   1.1.1.3.03.1.1  TAX. WITHOUT INCOME-RETAINED SOURCE-O                            35.698.402,79
+7   1.1.1.3.03.4.0  TAX. WITHOUT INCOME-RETAINED SOURCE-O                            None
+8   1.1.1.3.03.4.1  TRANSFER. SPECIFIC STATES/DF MUNIC.                              3.244.388,55
+9   2.1.1.8.00.0.0  TRANSFER. WITHOUT THE HERITAGE FOR STATES/DF/MUNIC.              873.268.831,82
+10  2.1.1.8.01.0.0  TRANSFER. WITHOUT PROPERTY AND URBAN LAND                        725.355.919,69
+11  2.1.1.8.01.1.0  TRANSFER. WITHOUT PROPERTY AND URBAN LAND                        688.362.702,16
+12  2.1.1.8.01.1.1  TRANSFER. WITHOUT PROPERTY AND URBAN LAND                        675.169.545,41
+13  2.1.1.8.01.1.3  TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND               7.934.800,14
+14  2.1.1.8.01.1.5  TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND               26.485,75
+15  2.1.1.8.01.1.6  TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND               18.997,84
+16  2.1.1.8.01.1.7  TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND               2.475.846,31
+17  2.1.1.8.01.1.8  TRANSFER. WITHOUT BUILDING PROPERTY AND URBAN LAND               2.737.026,71
+18  2.1.1.8.01.4.0  TRANSFER WITHOUT TR INTER VIVOS REAL AND UNLIMITED PROPERTIES    36.993.217,53
+19  2.1.1.8.01.4.1  TRANSFER WITHOUT INTER VIVOS REAL ESTATE                         None
 ```
 ## TRATAMENT OF NUMBERS    
 ```python
