@@ -9,6 +9,7 @@
 - **COLUMNS, ROWS AND DATA**
   - **[CREATING AND DELETE COLUMNS](#creating-and-delete-columns)**
   - **[DELETE ROWS](#delete-rows---documentation)**
+  - **[DELETE COLUMNS](#delete-columns)**
   - **[SELECTION (OR SEARCH) DATAFRAME OR SERIES](#selection-or-search-dataframe-or-series)**
   - **[ADVANCED DATA FILTER](#advanced-data-filter)**
   - **[BASIC CHANGES TO COLUMNS VALUES](#basic-changes-to-columns-values)**
@@ -71,6 +72,25 @@ df
 
 
 
+# DATAFRAME INDEX - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.index.html)**
+To retrieve dataframe indices use:
+```python
+DATAFRAME.index.to_list() OR DATAFRAME.index 
+EX.:
+df
+   int_col   text_col  float_col  NEW_COLUMN
+0        1    alpha       0.00        1000
+1        2    beta        0.25        2000
+2        3    gamma       0.50        3000
+3        4    delta       0.75        4000
+4        5    epsilon     1.00        5000
+
+df.index.to_list()
+[0, 1, 2, 3, 4]
+
+df.index
+RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created with pandas
+```
 
 
 
@@ -374,7 +394,123 @@ data7 | data8 | data9
 
 
 
+# CREATING AND DELETE COLUMNS
 
+A way to **create** a column in the dataframe, by through of a **constant**
+```python
+DataFrame['NEW COLUMN'] = constant
+
+EX.:
+df
+    int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
+
+
+df["new_col"] = 'constanst'
+
+df
+   int_col   text_col  float_col   new_col
+0        1   alpha       0.00      constant
+1        2   beta        0.25      constant
+2        3   gamma       0.50      constant
+3        4   delta       0.75      constant
+4        5   epsilon     1.00      constant
+```
+A way to **create** a column in the dataframe, by through of a **list** (the **list** must be the **same length** as the number of values in the **column**)
+
+```python
+DataFrame['NEW COLUMN'] = list
+
+EX.:
+
+df["new_col"] = ['a','b','c','d','e']
+
+df
+   int_col   text_col  float_col   new_col
+0        1   alpha       0.00        a
+1        2   beta        0.25        b
+2        3   gamma       0.50        c
+3        4   delta       0.75        d
+4        5   epsilon     1.00        e
+```
+The **attribution of values** in column too can do through of a **operation or a function**
+
+```python
+EX.:
+
+df["new_col"] = df["int_col"] * 1000
+
+df
+   int_col   text_col  float_col  NEW_COLUMN
+0        1    alpha       0.00        1000
+1        2    beta        0.25        2000
+2        3    gamma       0.50        3000
+3        4    delta       0.75        4000
+4        5    epsilon     1.00        5000
+```
+
+#### DELETE COLUMN
+
+A way to **delete** a column in the dataframe
+```python
+del DataFrame['COLUMN']
+
+EX.:
+df
+    int_col text_col  float_col
+0        1    alpha       0.00
+1        2     beta       0.25
+2        3    gamma       0.50
+3        4    delta       0.75
+4        5  epsilon       1.00
+
+
+del df["float_col"]
+
+df
+   int_col text_col
+0        1    alpha
+1        2     beta
+2        3    gamma
+3        4    delta
+4        5  epsilon
+```
+
+# DELETE ROWS - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html)
+For delete rows use:
+```python
+DataFrame.drop(labels)
+```
+EX.: It is necessary to exclude the register of 2019 in a Dataframe
+
+```python
+df
+  NOTHING  RANDOM  YEAR
+0       A      14  2000
+1       B      23  2001
+2       C      35  2005
+3       D      14  2017
+4       E      27  2018
+5       F      33  2019
+6       G      39  2019
+7       H      10  2019
+
+t = df.query("YEAR == 2019")
+df = df.drop(t.index)
+
+df
+  NOTHING  RANDOM  YEAR
+0       A      14  2000
+1       B      23  2001
+2       C      35  2005
+3       D      14  2017
+4       E      27  2018
+
+```
 
 
 
@@ -647,147 +783,12 @@ df
 
 
 
-# CREATING AND DELETE COLUMNS
-
-A way to **create** a column in the dataframe, by through of a **constant**
-```python
-DataFrame['NEW COLUMN'] = constant
-
-EX.:
-df
-    int_col text_col  float_col
-0        1    alpha       0.00
-1        2     beta       0.25
-2        3    gamma       0.50
-3        4    delta       0.75
-4        5  epsilon       1.00
-
-
-df["new_col"] = 'constanst'
-
-df
-   int_col   text_col  float_col   new_col
-0        1   alpha       0.00      constant
-1        2   beta        0.25      constant
-2        3   gamma       0.50      constant
-3        4   delta       0.75      constant
-4        5   epsilon     1.00      constant
-```
-A way to **create** a column in the dataframe, by through of a **list** (the **list** must be the **same length** as the number of values in the **column**)
-
-```python
-DataFrame['NEW COLUMN'] = list
-
-EX.:
-
-df["new_col"] = ['a','b','c','d','e']
-
-df
-   int_col   text_col  float_col   new_col
-0        1   alpha       0.00        a
-1        2   beta        0.25        b
-2        3   gamma       0.50        c
-3        4   delta       0.75        d
-4        5   epsilon     1.00        e
-```
-The **attribution of values** in column too can do through of a **operation or a function**
-
-```python
-EX.:
-
-df["new_col"] = df["int_col"] * 1000
-
-df
-   int_col   text_col  float_col  NEW_COLUMN
-0        1    alpha       0.00        1000
-1        2    beta        0.25        2000
-2        3    gamma       0.50        3000
-3        4    delta       0.75        4000
-4        5    epsilon     1.00        5000
-```
-
-#### DELETE COLUMN
-
-A way to **delete** a column in the dataframe
-```python
-del DataFrame['COLUMN']
-
-EX.:
-df
-    int_col text_col  float_col
-0        1    alpha       0.00
-1        2     beta       0.25
-2        3    gamma       0.50
-3        4    delta       0.75
-4        5  epsilon       1.00
-
-
-del df["float_col"]
-
-df
-   int_col text_col
-0        1    alpha
-1        2     beta
-2        3    gamma
-3        4    delta
-4        5  epsilon
-```
-
-# DELETE ROWS - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html)
-For delete rows use:
-```python
-DataFrame.drop(labels)
-```
-EX.: It is necessary to exclude the register of 2019 in a Dataframe
-
-```python
-df
-  NOTHING  RANDOM  YEAR
-0       A      14  2000
-1       B      23  2001
-2       C      35  2005
-3       D      14  2017
-4       E      27  2018
-5       F      33  2019
-6       G      39  2019
-7       H      10  2019
-
-t = df.query("YEAR == 2019")
-df = df.drop(t.index)
-
-df
-  NOTHING  RANDOM  YEAR
-0       A      14  2000
-1       B      23  2001
-2       C      35  2005
-3       D      14  2017
-4       E      27  2018
-
-```
 
 
 
 
 
-# DATAFRAME INDEX - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.index.html)**
-To retrieve dataframe indices use:
-```python
-DATAFRAME.index.to_list() OR DATAFRAME.index 
-EX.:
-df
-   int_col   text_col  float_col  NEW_COLUMN
-0        1    alpha       0.00        1000
-1        2    beta        0.25        2000
-2        3    gamma       0.50        3000
-3        4    delta       0.75        4000
-4        5    epsilon     1.00        5000
 
-df.index.to_list()
-[0, 1, 2, 3, 4]
-
-df.index
-RangeIndex(start=0, stop=5, step=1) # Default index type for dataframes created with pandas
-```
 
 
 
