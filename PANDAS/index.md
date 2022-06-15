@@ -517,7 +517,7 @@ df
 
 # SELECTION (OR SEARCH) DATAFRAME OR SERIES
 - **[SELECT COLUMN](#select-column)**
-- **[SELECT ROW](#select-row)**
+- **[SELECT ROW BY INDEX](#select-row-by-index)**
 - **[SELECT CELL](#select-cell)**
 - **[SELECT BY INDEX](#select-row-by-index)** 
 - **[SELECT BY LABEL](#select-by-label-almost-the-same-as-select-by-index---documentation)**
@@ -551,10 +551,9 @@ In case you want to have a copy of the column, use:
 DataFrame['COLUMN'].copy()
 ```
 
-## SELECT ROW
+### SELECT ROW BY INDEX - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html)**
 This command return **```<class 'pandas.core.series.Series'>```** of the selected row (**This return dont is a copy**, case alter any value of row, will you alter this value in dataframe too) 
 
-### SELECT ROW BY INDEX - **[DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html)**
 ```python
 DataFrame.iloc[index]
 
@@ -621,7 +620,7 @@ df
 3        4    delta       0.75
 4        5  epsilon       1.00
 
-df.iloc[2,2]
+df.iloc[2,1]
 
     gamma
     
