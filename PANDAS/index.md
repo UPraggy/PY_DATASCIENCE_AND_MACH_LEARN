@@ -519,8 +519,8 @@ df
 - **[SELECT COLUMN](#select-column)**
 - **[SELECT ROW BY INDEX](#select-row-by-index)**
 - **[SELECT CELL](#select-cell)**
-- **[SELECT BY INDEX](#select-row-by-index)** 
 - **[SELECT BY LABEL](#select-by-label-almost-the-same-as-select-by-index---documentation)**
+    - **[SELECT BY CONDITIONS](select-by-conditions)**
 
 ## SELECT COLUMN
 This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any row of column, will you alter this value in dataframe too) 
@@ -663,7 +663,7 @@ In case you want to have a copy, use:
 ```python
 DataFrame.loc[label].copy()
 ```
-#### SELECT BY CONDITIONS 
+## SELECT BY CONDITIONS 
 ```python
 df.loc[CONDITION]
 
