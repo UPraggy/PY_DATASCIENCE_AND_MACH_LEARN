@@ -521,7 +521,6 @@ df
 - **[SELECT CELL](#select-cell)**
 - **[SELECT BY INDEX](#select-row-by-index)** 
 - **[SELECT BY LABEL](#select-by-label-almost-the-same-as-select-by-index---documentation)**
-- **[SEARCH BY STRING](#search-by-string---documentation)**
 
 ## SELECT COLUMN
 This command return a **```<class 'pandas.core.series.Series'>```** of the selected column (**This return dont is a copy**, case alter any row of column, will you alter this value in dataframe too) 
@@ -666,6 +665,9 @@ DataFrame.loc[label].copy()
 ```
 #### SELECT BY CONDITIONS 
 ```python
+df.loc[CONDITION]
+
+EX.:
 df.loc[df['int_col'] > 2]
 
 df
@@ -673,6 +675,15 @@ df
 c        3    gamma       0.50
 d        4    delta       0.75
 e        5  epsilon       1.00
+```
+It is also possible to make more than one condition:
+```python
+df.loc[df['int_col'] > 2][df['float_col'] > 0.6]
+
+df
+          int_col	  text_col	float_col
+d   	       4	      delta	    0.75
+e       	   5	      epsilon	  1.00
 ```
 **OBS.:** The **loc** function only accepts labels, that is, according to the example below, if you want to access the **label** of the row or column by the **index**, there will be an error
 
@@ -693,26 +704,6 @@ df.loc[0]
 ERROR:
 raise KeyError(key) from err
 KeyError: 0
-```
-
-#### SEARCH BY STRING - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.contains.html)
-```python
-df
-   int_col text_col  float_col
-0        1    alpha       0.00
-1        2     beta       0.25
-2        3    gamma       0.50
-3        4    delta       0.75
-4        5  epsilon       1.00
-5        6   barial       2.10
-6        7     batm       3.50
-
-
-df.loc[df['text_col'].str.contains(f'^ba', case = False)]
-
-   int_col text_col  float_col
-5        6   barial        2.1
-6        7     batm        3.5
 ```
 
 
@@ -803,7 +794,7 @@ df
   - **[SELECT COLUMN WITH UNIQUE VALUES (WITHOUT REPEATING THEM)](#select-column-with-unique-values-without-repeating-them---documentation)**
   - **[QUERY](#query---documentation)**
   - **[BY LIST](#by-list---documentation)**
-  - **[Data corresponding to a string or number]**[Data-corresponding-to-a-string-or-number]
+  - **[Data corresponding to a string or number](Data-corresponding-to-a-string-or-number---documentation)**
   - **[FOR PERFORMACE](#for-performace)**
  
   
@@ -946,7 +937,7 @@ test_query
 13       23       beta       8.00
 ```
 
-#### Data corresponding to a string or number
+#### Data corresponding to a string or number - [DOCUMENTATION](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.contains.html)
 ```python
 DataFrame.loc[df["COLUMN"].astype(str).str.contains(string, case = False)]
 
